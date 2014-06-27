@@ -1,0 +1,13 @@
+
+/* 
+    The Base Styles for widgets
+*/
+
+.widget-inner{
+    
+    ul{
+        @include scut-list-unstyled;
+    }
+    
+}
+

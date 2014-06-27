@@ -1,0 +1,8 @@
+
+#logo{
+    display: block;
+    
+    > img{
+        @include scut-size(150px 90px);
+    }
+}

@@ -1,0 +1,6 @@
+
+
+#footer-social-links{
+    @include scut-list-inline(1em, false);
+    float: right;
+}
