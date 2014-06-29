@@ -330,10 +330,12 @@ class ViewController extends Controller{
             
             //pass resp nav position to inline js file
 
-            wp_localize_script("common_js", 
-                               "wxp_local", 
-                               array("rnav_position" => view_var("rnav_position"),
-                                     "rnav_support"  => "1"));
+            add_action("wp_enqueue_scripts", function(){
+                wp_localize_script("common_js", 
+                                   "wxp_local", 
+                                   array("rnav_position" => view_var("rnav_position"),
+                                         "rnav_support"  => "1"));                
+            });
 
             //include responsive nav near the nav menu
 

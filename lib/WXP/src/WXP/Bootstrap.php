@@ -45,7 +45,9 @@ class Bootstrap {
             //load scripts if exist
 
             if(file_exists(WXP::DS($path ."\config\scripts.php"))){
-                require WXP::DS($path ."\config\scripts.php");
+                add_action("wp_enqueue_scripts", function() use ($path){
+                   require WXP::DS($path ."\config\scripts.php"); 
+                });
             }
             
             //load dom routes if exist

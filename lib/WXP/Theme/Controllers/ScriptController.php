@@ -9,12 +9,15 @@ class ScriptController {
      *********************************/
     
     function common(){
-        wp_enqueue_script("jquery");
-        wp_enqueue_script("sidr");
-        wp_enqueue_script("bootstrap_dropdown");
-        wp_enqueue_style("sidr-css");
-        wp_enqueue_style('font_awesome');
-        wp_enqueue_style('animate-css');
+        
+        add_action("wp_enqueue_scripts", function(){
+            wp_enqueue_script("jquery");
+            wp_enqueue_script("sidr");
+            wp_enqueue_script("bootstrap_dropdown");
+            wp_enqueue_style("sidr-css");
+            wp_enqueue_style('font_awesome');
+            wp_enqueue_style('animate-css'); 
+        });
 
         add_action("WXP.DomRoute.after", array($this, 'lastCommon'));
     }
@@ -64,9 +67,10 @@ class ScriptController {
     
     function lastCommon(){
         
-          wp_enqueue_script('common_js');
-        
-          wp_enqueue_style('theme_style');
+        add_action("wp_enqueue_scripts", function(){
+            wp_enqueue_script('common_js');
+            wp_enqueue_style('theme_style');  
+        });
     }
     
 }

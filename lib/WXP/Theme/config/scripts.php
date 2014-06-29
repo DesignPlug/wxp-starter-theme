@@ -1,5 +1,5 @@
-<?php   
-        
+<?php 
+
         //jquery cdn
        // wp_deregister_script('jquery');
        // wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', false, null, false);
