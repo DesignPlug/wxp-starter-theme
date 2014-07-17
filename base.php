@@ -24,7 +24,7 @@
      * get the layout footer
      *********************************************************************/            
 
-    get_template_part("views/base/layouts/parts/footer", get_post_format());
+    get_template_part("views/base/layouts/parts/footer", view_var("layout_footer"));
 
     
     /**********************************************************************
