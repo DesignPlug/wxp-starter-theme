@@ -1,0 +1,35 @@
+/* overlays */
+
+*[class*="w-bg-overlay"]{
+    
+    > *{
+        position: relative;
+        z-index: 3;
+    } 
+}
+
+*[class*="w-bg-overlay"]:after{
+    z-index: 1;
+    content: ""; 
+    display: block;
+    @include scut-absolute(0 0 0 0);
+    background-color: #fff;
+    opacity: .5;
+}
+
+*[class*="w-bg-overlay"].overlay-mask:after{
+    opacity: .9;
+}
+
+
+/* mesh background overlay */
+
+.w-bg-overlay-mesh:after{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQIW2NkYGD4D8SMQAwhgMAYiM/COCCB/wAzPAMD4zaE0wAAAABJRU5ErkJggg==");
+}
+
+/* background overlay colors */
+
+.w-bg-overlay-primary:after{
+    @extend .bg-primary;
+}

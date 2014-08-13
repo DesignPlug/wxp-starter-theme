@@ -1,0 +1,164 @@
+.btn{
+    border-radius: 0px;
+    @include transition(all 155ms ease-in-out);     
+    
+    &:hover,
+    &:active{
+        box-shadow: none;
+    } 
+    
+    &:hover{
+        @include transition(all 155ms ease-in-out); 
+    }  
+    
+    &.btn-rounded{
+        border-radius: 3px;
+    }
+    
+    &.btn-round{
+        border-radius: 50%;
+    }
+    
+}
+
+.btn-primary{
+  @include button-variant(#fff, $primary-color-dk, $primary-color-dk);
+}
+
+.btn-secondary{
+  @include button-variant(#fff, $primary-color-md, $primary-color-md);    
+}
+
+.btn-inverse{
+    @include button-variant(#fff, rgb(49,48,53), #000);
+}
+
+*[class*="btn-outline"]{
+  @include button-variant(rgba(255, 255, 255, .8), rgba(255, 255, 255, 0), rgba(255, 255, 255, .7));    
+  border: 3px solid rgba(255, 255, 255, .8);
+  padding: 8px 11px;
+
+  
+  &.btn-small{
+    padding: 4px 7px; 
+    border: 2px solid rgba(255, 255, 255, .8);
+    font-size: .9em;
+
+    &:hover,
+    &:active{
+      border: 2px solid rgba(255, 255, 255, .6);
+    }
+  }  
+  
+  &:hover,
+  &:active{
+    border: 3px solid rgba(255, 255, 255, .6);
+  }
+
+  
+}
+
+.btn-outline-primary{
+  @include btn-outline-variant($primary-color-dk);  
+}
+
+/*  icon butttons */
+
+.icn-left{
+    position: relative;
+    padding-left: 3em;
+    text-align: left;
+    
+    .fa{
+        @include scut-absolute(50% n n 1.3em);
+        margin-left: -15px;
+        margin-top: -8px;
+        font-size: 1.5em;
+    }
+}
+
+.icn-right{
+    position: relative;
+    padding-right: 3em;
+    text-align: left;
+    
+    .fa{
+        @include scut-absolute(50% 1.3em n n);
+        margin-right: -15px;
+        margin-top: -10px;
+        font-size: 1.3em;
+    } 
+}
+
+.btn-icn{
+    font-size: 1.5em;
+    padding: 3px 8px;
+}
+
+
+/* toggle trigger */
+
+.btn-toggle-group > button{
+    min-width: 170px;
+}
+
+
+/*  Button list */
+
+ul.btn-list {
+
+    @include scut-list-inline;
+    
+    li{
+        margin: 3px;
+        float: left;
+   }
+    
+}
+
+/* wide btn */
+
+.btn.btn-wide{
+    min-width: 200px;
+}
+
+/********************************************
+3d buttin
+********************************************/
+
+.btn.btn3d{
+    
+    position: relative;
+    outline: medium none;
+    -moz-outline-style: none;
+    border: 0px;
+    top: 0;
+    
+    &.btn-primary{
+        @include btn3d-variant($primary-color-dk);
+    }
+    
+    &.btn-default{
+        @include btn3d-variant($btn-default-bg);
+    }
+    
+    &.btn-success{
+        @include btn3d-variant($btn-success-bg);
+    }
+    
+    &.btn-warning{
+        @include btn3d-variant($btn-warning-bg);
+    }
+
+    &.btn-danger{
+        @include btn3d-variant($btn-danger-bg); 
+    }
+
+    &.btn-info{
+        @include btn3d-variant($btn-info-bg); 
+    }
+    
+    &.btn-inverse{
+        @include btn3d-variant(rgb(49,48,53));
+    }
+}

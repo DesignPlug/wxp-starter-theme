@@ -17,23 +17,20 @@ $ds = DIRECTORY_SEPARATOR;
 
 require 'WXP'.$ds.'src'.$ds.'WXP'.$ds.'WXP.php';
 require  WXP::DS('WXP/src/WXP/Autoloader.php');
+require  WXP::DS('WXP/src/WXP/TemplatePath.php');
+require  WXP::DS('WXP/src/WXP/Path.php');
 require  WXP::DS('WXP/src/WXP/Bootstrap.php');
 require  WXP::DS('WXP/src/WXP/DomRouter.php');
 require  WXP::DS('WXP/src/WXP/Options.php');
 require  WXP::DS('WXP/src/WXP/Controller.php');
 require  WXP::DS('WXP/src/WXP/View.php');
+require  WXP::DS('WXP/src/WXP/helpers.php');
 
-function view_var($var){
-    return \WXP\View::getInstance()->get($var);
-}
 
-function __var($name){
-    echo view_var($name);
-}
 /*****************************************************
  * Begin Routing
  *****************************************************/
 
-Bootstrap::init();
+new Bootstrap;
 
 ?>

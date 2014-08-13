@@ -1,0 +1,31 @@
+/*  aaargh */
+
+@include scut-font-face("aaargh", "fonts/aaargh/regular/Aaargh-webfont");
+
+/* Cantarell */
+
+@include scut-font-face("cantarell", "fonts/cantarell/regular/Cantarell-Regular-webfont");
+@include scut-font-face("cantarell", "fonts/cantarell/bold/Cantarell-Bold-webfont",  bold);
+
+/* Caviar Dreams */
+
+@include scut-font-face("caviar_dreams", "fonts/caviardreams/regular/CaviarDreams-webfont");
+@include scut-font-face("caviar_dreams", "fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont", bold);
+ 
+/* daniel */
+
+@include scut-font-face("daniel", "fonts/daniel/regular/daniel-webfont");
+@include scut-font-face("daniel", "fonts/daniel/bold/danielbd-webfont", bold);
+
+/* Open Sans */
+
+@include scut-font-face("open_sans", "fonts/opensans/regular/OpenSans-Regular-webfont");
+@include scut-font-face("open_sansIc", "fonts/opensans/italic/OpenSans-Italic-webfont");
+@include scut-font-face("open_sansLt", "fonts/opensans/light/OpenSans-Light-webfont");
+@include scut-font-face("open_sansLtIc", "fonts/opensans/lightitalic/OpenSans-LightItalic-webfont");
+@include scut-font-face("open_sansB", "fonts/opensans/bold/OpenSans-Bold-webfont");
+@include scut-font-face("open_sansSb", "fonts/opensans/semibold/OpenSans-Semibold-webfont");
+@include scut-font-face("open_sansSbIt", "fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont");
+@include scut-font-face("open_sansBItc", "fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont");
+@include scut-font-face("open_sansEb", "fonts/opensans/extrabold/OpenSans-ExtraBold-webfont");
+@include scut-font-face("open_sansEbItc", "fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont");

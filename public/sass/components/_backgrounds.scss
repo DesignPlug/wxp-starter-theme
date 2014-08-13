@@ -1,0 +1,56 @@
+/* backgrounds */
+
+.bg-primary{
+    @include plug-linear-gradient($primary-color-lt, $primary-color-dk);    
+}
+
+.bg-plain{
+    background-color: $ll-shlw-color-lt;
+}
+
+.bg-lowlight{
+    background-color: $ll-shlw-color-dk;
+}
+
+.bg-deep{
+    background-color: $ll-dp-color-lt;
+    color: #fff;
+}
+
+.bg-deep-detail{
+    background-color: $ll-dp-color-dk;
+}
+
+/* patterns */
+
+*[class*="bg-pattern"]{
+    background-repeat: repeat;
+}
+
+.bg-pattern-brilliant{
+    background-image: url(../images/pattern-brilliant.png);
+}
+
+.bg-pattern-cream{
+    background-image: url(../images/pattern-cream.png);
+}
+
+.bg-pattern-geometry2{
+    background-image: url(../images/pattern-geometry2.png);
+}
+
+.bg-pattern-tgrid{
+    background-image: url(../images/pattern-tgrid.png);
+}
+
+.bg-pattern-black-thread{
+    background-image: url(../images/pattern-black-thread.png);
+}
+
+.bg-pattern-black-cloth-vrt{
+    background-image: url(../images/pattern-black-cloth-vrt.png);
+}
+
+.bg-pattern-red-cloth-vrt{
+    background-image: url(../images/pattern-red-cloth-vrt.png);
+}

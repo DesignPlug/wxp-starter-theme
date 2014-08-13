@@ -1,0 +1,229 @@
+form{
+    padding-bottom: 40px;
+    display: block;
+    @include scut-clearfix;
+    
+    .row{
+        padding-top: 40px;
+    } 
+}
+
+.form-control{
+    border-radius: 0px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    cursor: pointer;
+    
+    &:focus{
+        border: 1px solid $primary-color-lt;         
+    }
+}
+
+textarea.form-control{
+    padding-top: 9px;
+}
+
+.input-group{ 
+    
+    z-index: 1;
+
+    &.w-select{
+        z-index: 9;
+    }
+    
+    &.w-select-addon{
+        z-index: 10;
+    }    
+}
+
+.input-group.w-addons{
+    
+    width: 100%;
+    
+    &.focused,
+    &.valid{
+    
+        .form-control:focus,
+        .form-control.valid{ 
+
+            color: $primary-color-md;
+            box-shadow: none; 
+            font-weight: 500;
+
+            ~ .input-group-addon{
+                color: $primary-color-md;
+            }
+        }
+    
+        .input-group-addon{
+            color: $primary-color-md;
+        }
+        
+        
+        .bootstrap-select:not(.input-group-addon){
+
+            span, i.glyphicon{
+                color: rgba(1, 1, 1, .6);
+            }
+
+            ~ .input-group-addon,
+            span, i.glyphicon{
+                color: $primary-color-md;
+            }
+        }
+    }
+    
+    &.error{
+        
+        .form-control.error,
+        .bootstrap-select:not(.input-group-addon){ 
+            color: red;
+            border: 1px solid red;
+        }
+
+        .input-group-addon{
+            color: red;
+        }
+        
+    }
+        
+    .Zebra_DatePicker_Icon_Wrapper{
+
+        width: 100%;
+        background: transparent;
+        
+        input{
+            background: #fff;
+            cursor: pointer;
+            
+            &:not(:focus){
+                color: rgba(1, 1, 1, .6);
+            }
+        }
+        
+        button.Zebra_DatePicker_Icon{
+            background: none;
+        }
+
+    }
+    
+    label.error{
+        @include scut-absolute(n n 100% 0);
+        position: absolute;
+        font-weight: normal;
+        color: red;
+        display: block;
+        font-size: .9em;
+    }
+    
+    .input-group-addon{
+        @include scut-absolute(1px n 1px 1px);
+        background: transparent;
+        border: none;
+        width: 36px;
+        color: rgba(1, 1, 1, .3);
+        float: none;
+        margin: 0px;
+        padding: 0px;
+        
+        span, i.glyphicon{
+            color: rgba(1, 1, 1, .6);
+        }
+
+        &.open{
+            outline: none;
+            
+            span, i.glyphicon{
+                color: $primary-color-md;
+            }
+        }
+        
+        .fa{
+            margin-top: 2px;
+            font-size: 1.7em;
+        }
+        
+        button{
+            vertical-align:middle;
+            @include scut-padding(0 n 0 n);
+            height: 100%;
+            border: none;
+        }
+        
+    }
+    
+    .bootstrap-select:not(.input-group-addon){
+        
+        position: relative;
+        outline: none;
+        
+        span, i.glyphicon{
+            color: rgba(1, 1, 1, .6);
+        }
+        
+        &.open{
+            border: 1px solid $primary-color-lt;
+            
+            ~ .input-group-addon,
+            span, i.glyphicon{
+                color: $primary-color-md;
+            }
+            
+        }
+        
+        button{
+            border: none;
+            vertical-align:middle;
+            @include scut-padding(0px n 0px n);
+            height: 100%;
+            margin-right: 43px;
+        }
+        
+    }
+    
+    .input-group-addon.append{
+        left: auto;
+        right: 1px;
+    }
+    
+    .form-control{
+        padding-left: 43px;
+        border-radius: 0px;
+
+        &:focus,
+        &.valid{ 
+
+            color: $primary-color-md;
+            box-shadow: none; 
+            font-weight: 500;
+
+            ~ .input-group-addon{
+                color: $primary-color-md;
+            }
+        }
+        
+        &.error,
+        &.error:focus{
+            
+            color: red;
+            border: 1px solid red;
+            
+            ~ .input-group-addon{
+                color: red;
+            }            
+            
+        }
+        
+        &.input-block-level{
+            padding-left: 5px;
+            border-radius: 3px; 
+            box-shadow: inset 3px 1px 18px rgba(0, 0, 0, .3);
+            
+            &:focus{
+                box-shadow: inset 3px 1px 10px rgba(0, 0, 0, .2);
+            }
+
+        }
+
+    }
+    
+}

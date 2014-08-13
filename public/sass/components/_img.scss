@@ -1,0 +1,85 @@
+.img{
+     position: relative;
+     display: inline-block;
+     overflow: hidden;
+ }
+
+ .img img{
+     height: 100%;
+     width: auto;
+    -webkit-border-radius: inherit; 
+    -moz-border-radius: inherit;  
+    -o-border-radius: inherit;  
+    border-radius: inherit;     
+ } 
+ 
+.img .img-overlay{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 0px;
+    background: rgba(0, 0, 0, .3);       
+}
+
+.img .img-overlay > .img-overlay-buttons{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    margin-top: -35px;
+    text-align: center;
+    opacity: 0;
+}
+
+.img .img-overlay > .img-overlay-buttons > .s-button{
+    height: 60px;
+    width: 60px;
+}
+
+
+.img .img-overlay > .img-overlay-buttons > .s-button > i{
+    position: absolute;
+    height: 30px;
+    width: 40px;    
+    margin-left: -20px;
+    margin-top: -15px;
+    top: 50%;
+    left: 50%;
+}
+
+/* img zoom in on hover */
+
+.img.zoom{
+    -webkit-transition: all 240ms ease-in-out;
+    -moz-transition: all 240ms ease-in-out;
+    -ms-transition: all 240ms ease-in-out;
+    -o-transition: all 240ms ease-in-out;
+    transition: all 240ms ease-in-out;     
+}
+
+.img.zoom.zoom-slow{
+    -webkit-transition: all 740ms ease-in-out;
+    -moz-transition: all 740ms ease-in-out;
+    -ms-transition: all 740ms ease-in-out;
+    -o-transition: all 740ms ease-in-out;
+    transition: all 740ms ease-in-out;     
+}
+
+.img.zoom:hover > img{
+    -webkit-transition: all 140ms ease-in-out;
+    -moz-transition: all 140ms ease-in-out;
+    -ms-transition: all 140ms ease-in-out;
+    -o-transition: all 140ms ease-in-out;
+    transition: all 140ms ease-in-out;     
+   -moz-transform: scale(1.2, 1.2);
+   -webkit-transform: scale(1.2, 1.2);
+   -o-transform: scale(1.2, 1.2);  
+   transform: scale(1.2, 1.2);
+   -ms-transform: scale(1.2, 1.2);
+   filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
+   M11=1, M12=-0, M21=0, M22=1);     
+} 

@@ -1,0 +1,31 @@
+*[class*="w-arrow-"],
+.w-arrow-down{
+    position: relative;
+    z-index: 999;
+    
+    &:after {
+        content: ""; 
+        @include scut-triangle(down, 40px 20px, #fff);
+        @include scut-absolute(100% n n 50%);
+        margin-left: -20px;
+    }
+    
+}
+
+.w-arrow-left:after{
+    @include scut-triangle(left, 40px 20px, #fff);;
+    @include scut-absolute(50% 100% n auto);
+    @include scut-margin(-10px n n auto);
+}
+
+.w-arrow-right:after{
+    @include scut-triangle(right, 40px 20px, #fff);;
+    @include scut-absolute(50% auto n 100%);
+    @include scut-margin(-10px n n auto);
+}
+
+.w-arrow-up:after{
+    @include scut-triangle(up, 40px 20px, #fff);; 
+    @include scut-absolute(auto auto 100% 50%);
+    @include scut-margin(auto n n -20px);
+}

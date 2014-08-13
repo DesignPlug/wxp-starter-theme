@@ -8,7 +8,7 @@
               <p><?php echo view_var("copyright_footer"); ?></p>
           </div>
           <div class="col-md-8">
-              <?php get_template_part("views/social/networks"); ?>
+              <?php WXP\WXP::get_view("#social_networks"); ?>
           </div>
       </div>
   </div>

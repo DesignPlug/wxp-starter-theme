@@ -7646,6 +7646,15 @@ td.visible-print {
 * v0.10.4
 * Docs at http://davidtheclark.github.io/scut
 */
+/* line 35, ../sass/scut/_scut.scss */
+.widget .widget-inner > ul:not(#recentcomments), ul.list,
+ol.list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* 
     The Base Styles for widgets
 */
@@ -7680,4 +7689,2650 @@ td.visible-print {
 #logo > img {
   width: 150px;
   height: 90px;
+}
+
+/* color scheme vars */
+/* heading vars */
+/* font faces */
+/* reset */
+/* remove all margins on top level rows that would cause
+   horiontal scroll to appear */
+/* line 5, ../sass/components/_resets.scss */
+body {
+  height: 100% !important;
+}
+
+/* line 9, ../sass/components/_resets.scss */
+main {
+  margin: 0px;
+}
+/* line 13, ../sass/components/_resets.scss */
+main > .row {
+  margin: 0px;
+}
+
+/* line 18, ../sass/components/_resets.scss */
+main.col-sm-12 {
+  padding: 0px;
+}
+
+/* line 23, ../sass/components/_resets.scss */
+.container {
+  position: relative;
+}
+
+/* color scheme vars */
+/* heading vars */
+/* font faces */
+/* buttons */
+/* line 2, ../sass/components/_arrow.scss */
+*[class*="w-arrow-"],
+.w-arrow-down {
+  position: relative;
+  z-index: 999;
+}
+/* line 6, ../sass/components/_arrow.scss */
+*[class*="w-arrow-"]:after,
+.w-arrow-down:after {
+  content: "";
+  display: inline-block;
+  height: 0;
+  width: 0;
+  -webkit-transform: rotate(360deg);
+  border-width: 20px 20px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: white;
+  border-bottom-width: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -20px;
+}
+
+/* line 15, ../sass/components/_arrow.scss */
+.w-arrow-left:after {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  -webkit-transform: rotate(360deg);
+  border-width: 10px 40px;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: white;
+  border-left-width: 0;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  left: auto;
+  margin-top: -10px;
+  margin-left: auto;
+}
+
+/* line 21, ../sass/components/_arrow.scss */
+.w-arrow-right:after {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  -webkit-transform: rotate(360deg);
+  border-width: 10px 40px;
+  border-style: solid;
+  border-color: transparent;
+  border-left-color: white;
+  border-right-width: 0;
+  position: absolute;
+  top: 50%;
+  right: auto;
+  left: 100%;
+  margin-top: -10px;
+  margin-left: auto;
+}
+
+/* line 27, ../sass/components/_arrow.scss */
+.w-arrow-up:after {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  -webkit-transform: rotate(360deg);
+  border-width: 20px 20px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: white;
+  border-top-width: 0;
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 100%;
+  left: 50%;
+  margin-top: auto;
+  margin-left: -20px;
+}
+
+/* line 1, ../sass/components/_animations.scss */
+*[data-appear-animation] {
+  opacity: 0;
+}
+/* line 4, ../sass/components/_animations.scss */
+*[data-appear-animation].animated {
+  opacity: 1;
+}
+
+/* backgrounds */
+/* line 3, ../sass/components/_backgrounds.scss */
+.bg-primary, .w-bg-overlay-primary:after {
+  background: #99ff33;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #99ff33 0%, #669900 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #99ff33), color-stop(100%, #669900));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #99ff33 0%, #669900 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #99ff33 0%, #669900 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #99ff33 0%, #669900 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #99ff33 0%, #669900 100%);
+  /* W3C */
+}
+
+/* line 7, ../sass/components/_backgrounds.scss */
+.bg-plain {
+  background-color: #eeeeee;
+}
+
+/* line 11, ../sass/components/_backgrounds.scss */
+.bg-lowlight {
+  background-color: #e3e4ea;
+}
+
+/* line 15, ../sass/components/_backgrounds.scss */
+.bg-deep {
+  background-color: #393a42;
+  color: #fff;
+}
+
+/* line 20, ../sass/components/_backgrounds.scss */
+.bg-deep-detail {
+  background-color: #28282e;
+}
+
+/* patterns */
+/* line 26, ../sass/components/_backgrounds.scss */
+*[class*="bg-pattern"] {
+  background-repeat: repeat;
+}
+
+/* line 30, ../sass/components/_backgrounds.scss */
+.bg-pattern-brilliant {
+  background-image: url(../images/pattern-brilliant.png);
+}
+
+/* line 34, ../sass/components/_backgrounds.scss */
+.bg-pattern-cream {
+  background-image: url(../images/pattern-cream.png);
+}
+
+/* line 38, ../sass/components/_backgrounds.scss */
+.bg-pattern-geometry2 {
+  background-image: url(../images/pattern-geometry2.png);
+}
+
+/* line 42, ../sass/components/_backgrounds.scss */
+.bg-pattern-tgrid {
+  background-image: url(../images/pattern-tgrid.png);
+}
+
+/* line 46, ../sass/components/_backgrounds.scss */
+.bg-pattern-black-thread {
+  background-image: url(../images/pattern-black-thread.png);
+}
+
+/* line 50, ../sass/components/_backgrounds.scss */
+.bg-pattern-black-cloth-vrt {
+  background-image: url(../images/pattern-black-cloth-vrt.png);
+}
+
+/* line 54, ../sass/components/_backgrounds.scss */
+.bg-pattern-red-cloth-vrt {
+  background-image: url(../images/pattern-red-cloth-vrt.png);
+}
+
+/* line 2, ../sass/components/_banners.scss */
+*[class*="banner-"] {
+  position: relative;
+  overflow: hidden;
+}
+/* line 6, ../sass/components/_banners.scss */
+*[class*="banner-"] > * {
+  z-index: 8;
+}
+
+/* line 11, ../sass/components/_banners.scss */
+.banner-alpha {
+  padding: 70px 0px;
+}
+
+/* line 15, ../sass/components/_banners.scss */
+.banner-beta {
+  padding: 40px 0px;
+}
+
+/* line 19, ../sass/components/_banners.scss */
+.banner-gamma {
+  padding: 20px 0px;
+}
+
+/* line 24, ../sass/components/_banners.scss */
+.banner-delta {
+  padding: 10px 0px;
+}
+
+@media (min-width: 992px) {
+  /* line 33, ../sass/components/_banners.scss */
+  .banner-alpha {
+    padding: 130px 0px;
+  }
+
+  /* line 37, ../sass/components/_banners.scss */
+  .banner-beta {
+    padding: 90px 0px;
+  }
+
+  /* line 41, ../sass/components/_banners.scss */
+  .banner-gamma {
+    padding: 60px 0px;
+  }
+
+  /* line 45, ../sass/components/_banners.scss */
+  .banner-delta {
+    padding: 30px 0px;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+/* line 2, ../sass/components/_blockquote.scss */
+blockquote {
+  width: 100%;
+  background: transparent;
+  color: #555555;
+  font-weight: normal;
+  padding: 15px 45px 15px 60px;
+  border-left: none;
+  margin-left: 0px;
+  margin-bottom: 25px;
+  position: relative;
+}
+/* line 14, ../sass/components/_blockquote.scss */
+blockquote > p {
+  margin: 0px;
+  line-height: 1.6em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+}
+/* line 21, ../sass/components/_blockquote.scss */
+blockquote:before {
+  display: block;
+  content: "\201C";
+  font-family: "Open Sans", sans-serif;
+  font-size: 80px;
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  color: inherit;
+}
+/* line 32, ../sass/components/_blockquote.scss */
+blockquote cite {
+  float: right;
+  margin-right: 30px;
+  font-size: 1em;
+  color: #999;
+  position: relative;
+  display: inline-block;
+}
+/* line 41, ../sass/components/_blockquote.scss */
+blockquote cite:before, blockquote cite:after {
+  content: "\2014 \2009";
+  display: inline-block;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  height: 100%;
+}
+/* line 50, ../sass/components/_blockquote.scss */
+blockquote cite:after {
+  right: auto;
+  left: 100%;
+  margin-left: 5px;
+  display: none;
+}
+
+/* borders */
+/* line 3, ../sass/components/_borders.scss */
+.dash-border {
+  margin: 5px auto;
+  z-index: 1;
+  position: relative;
+}
+/* line 37, ../sass/components/_mixins.scss */
+.dash-border:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: -1;
+  background: -webkit-linear-gradient(left, #cccc00 70%, transparent 70%), -webkit-linear-gradient(left, #cccc00 70%, transparent 70%), -webkit-linear-gradient(top, #cccc00 70%, transparent 70%), -webkit-linear-gradient(top, #cccc00 70%, transparent 70%);
+  background: -moz-linear-gradient(left, #cccc00 70%, transparent 70%), -moz-linear-gradient(left, #cccc00 70%, transparent 70%), -moz-linear-gradient(top, #cccc00 70%, transparent 70%), -moz-linear-gradient(top, #cccc00 70%, transparent 70%);
+  background: -o-linear-gradient(left, #cccc00 70%, transparent 70%), -o-linear-gradient(left, #cccc00 70%, transparent 70%), -o-linear-gradient(top, #cccc00 70%, transparent 70%), -o-linear-gradient(top, #cccc00 70%, transparent 70%);
+  background: -ms-linear-gradient(left, #cccc00 70%, transparent 70%), -ms-linear-gradient(left, #cccc00 70%, transparent 70%), -ms-linear-gradient(top, #cccc00 70%, transparent 70%), -ms-linear-gradient(top, #cccc00 70%, transparent 70%);
+  background: linear-gradient(to right, #cccc00 70%, transparent 70%), linear-gradient(to right, #cccc00 70%, transparent 70%), linear-gradient(to bottom, #cccc00 70%, transparent 70%), linear-gradient(to bottom, #cccc00 70%, transparent 70%);
+  background-size: 30px 5px, 30px 5px, 5px 30px, 5px 30px;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-position: 0 0, left bottom, 0 0, right 0;
+  border-radius: inherit;
+}
+
+/* line 1, ../sass/components/_buttons.scss */
+.btn {
+  border-radius: 0px;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+/* line 6, ../sass/components/_buttons.scss */
+.btn:hover, .btn:active {
+  box-shadow: none;
+}
+/* line 10, ../sass/components/_buttons.scss */
+.btn:hover {
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+/* line 14, ../sass/components/_buttons.scss */
+.btn.btn-rounded {
+  border-radius: 3px;
+}
+/* line 18, ../sass/components/_buttons.scss */
+.btn.btn-round {
+  border-radius: 50%;
+}
+
+/* line 24, ../sass/components/_buttons.scss */
+.btn-primary {
+  color: white;
+  background-color: #669900;
+  border-color: #669900;
+}
+/* line 470, ../sass/bootstrap/lib/_mixins.scss */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+  color: white;
+  background-color: #4b7000;
+  border-color: #3d5c00;
+}
+/* line 475, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-primary.dropdown-toggle {
+  color: white;
+  background-color: #4b7000;
+  border-color: #3d5c00;
+}
+/* line 481, ../sass/bootstrap/lib/_mixins.scss */
+.btn-primary:active, .btn-primary.active {
+  background-image: none;
+}
+/* line 484, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-primary.dropdown-toggle {
+  background-image: none;
+}
+/* line 494, ../sass/bootstrap/lib/_mixins.scss */
+.btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
+  background-color: #669900;
+  border-color: #669900;
+}
+
+/* line 28, ../sass/components/_buttons.scss */
+.btn-secondary {
+  color: white;
+  background-color: #cccc00;
+  border-color: #cccc00;
+}
+/* line 470, ../sass/bootstrap/lib/_mixins.scss */
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active {
+  color: white;
+  background-color: #a3a300;
+  border-color: #8f8f00;
+}
+/* line 475, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-secondary.dropdown-toggle {
+  color: white;
+  background-color: #a3a300;
+  border-color: #8f8f00;
+}
+/* line 481, ../sass/bootstrap/lib/_mixins.scss */
+.btn-secondary:active, .btn-secondary.active {
+  background-image: none;
+}
+/* line 484, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-secondary.dropdown-toggle {
+  background-image: none;
+}
+/* line 494, ../sass/bootstrap/lib/_mixins.scss */
+.btn-secondary.disabled, .btn-secondary.disabled:hover, .btn-secondary.disabled:focus, .btn-secondary.disabled:active, .btn-secondary.disabled.active, .btn-secondary[disabled], .btn-secondary[disabled]:hover, .btn-secondary[disabled]:focus, .btn-secondary[disabled]:active, .btn-secondary[disabled].active, fieldset[disabled] .btn-secondary, fieldset[disabled] .btn-secondary:hover, fieldset[disabled] .btn-secondary:focus, fieldset[disabled] .btn-secondary:active, fieldset[disabled] .btn-secondary.active {
+  background-color: #cccc00;
+  border-color: #cccc00;
+}
+
+/* line 32, ../sass/components/_buttons.scss */
+.btn-inverse {
+  color: white;
+  background-color: #313035;
+  border-color: black;
+}
+/* line 470, ../sass/bootstrap/lib/_mixins.scss */
+.btn-inverse:hover, .btn-inverse:focus, .btn-inverse:active, .btn-inverse.active {
+  color: white;
+  background-color: #1d1d20;
+  border-color: black;
+}
+/* line 475, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-inverse.dropdown-toggle {
+  color: white;
+  background-color: #1d1d20;
+  border-color: black;
+}
+/* line 481, ../sass/bootstrap/lib/_mixins.scss */
+.btn-inverse:active, .btn-inverse.active {
+  background-image: none;
+}
+/* line 484, ../sass/bootstrap/lib/_mixins.scss */
+.open .btn-inverse.dropdown-toggle {
+  background-image: none;
+}
+/* line 494, ../sass/bootstrap/lib/_mixins.scss */
+.btn-inverse.disabled, .btn-inverse.disabled:hover, .btn-inverse.disabled:focus, .btn-inverse.disabled:active, .btn-inverse.disabled.active, .btn-inverse[disabled], .btn-inverse[disabled]:hover, .btn-inverse[disabled]:focus, .btn-inverse[disabled]:active, .btn-inverse[disabled].active, fieldset[disabled] .btn-inverse, fieldset[disabled] .btn-inverse:hover, fieldset[disabled] .btn-inverse:focus, fieldset[disabled] .btn-inverse:active, fieldset[disabled] .btn-inverse.active {
+  background-color: #313035;
+  border-color: black;
+}
+
+/* line 36, ../sass/components/_buttons.scss */
+*[class*="btn-outline"] {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  padding: 8px 11px;
+}
+/* line 470, ../sass/bootstrap/lib/_mixins.scss */
+*[class*="btn-outline"]:hover, *[class*="btn-outline"]:focus, *[class*="btn-outline"]:active, *[class*="btn-outline"].active {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(235, 235, 235, 0);
+  border-color: rgba(224, 224, 224, 0.7);
+}
+/* line 475, ../sass/bootstrap/lib/_mixins.scss */
+.open *[class*="btn-outline"].dropdown-toggle {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(235, 235, 235, 0);
+  border-color: rgba(224, 224, 224, 0.7);
+}
+/* line 481, ../sass/bootstrap/lib/_mixins.scss */
+*[class*="btn-outline"]:active, *[class*="btn-outline"].active {
+  background-image: none;
+}
+/* line 484, ../sass/bootstrap/lib/_mixins.scss */
+.open *[class*="btn-outline"].dropdown-toggle {
+  background-image: none;
+}
+/* line 494, ../sass/bootstrap/lib/_mixins.scss */
+*[class*="btn-outline"].disabled, *[class*="btn-outline"].disabled:hover, *[class*="btn-outline"].disabled:focus, *[class*="btn-outline"].disabled:active, *[class*="btn-outline"].disabled.active, *[class*="btn-outline"][disabled], *[class*="btn-outline"][disabled]:hover, *[class*="btn-outline"][disabled]:focus, *[class*="btn-outline"][disabled]:active, *[class*="btn-outline"][disabled].active, fieldset[disabled] *[class*="btn-outline"], fieldset[disabled] *[class*="btn-outline"]:hover, fieldset[disabled] *[class*="btn-outline"]:focus, fieldset[disabled] *[class*="btn-outline"]:active, fieldset[disabled] *[class*="btn-outline"].active {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+/* line 42, ../sass/components/_buttons.scss */
+*[class*="btn-outline"].btn-small {
+  padding: 4px 7px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-size: .9em;
+}
+/* line 48, ../sass/components/_buttons.scss */
+*[class*="btn-outline"].btn-small:hover, *[class*="btn-outline"].btn-small:active {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+/* line 54, ../sass/components/_buttons.scss */
+*[class*="btn-outline"]:hover, *[class*="btn-outline"]:active {
+  border: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+/* line 61, ../sass/components/_buttons.scss */
+.btn-outline-primary {
+  outline: 3px solid #669900;
+  color: #669900;
+}
+/* line 101, ../sass/components/_mixins.scss */
+.btn-outline-primary:hover, .btn-outline-primary:active {
+  color: #446600;
+  outline: 3px solid #446600;
+}
+
+/*  icon butttons */
+/* line 67, ../sass/components/_buttons.scss */
+.icn-left {
+  position: relative;
+  padding-left: 3em;
+  text-align: left;
+}
+/* line 72, ../sass/components/_buttons.scss */
+.icn-left .fa {
+  position: absolute;
+  top: 50%;
+  left: 1.3em;
+  margin-left: -15px;
+  margin-top: -8px;
+  font-size: 1.5em;
+}
+
+/* line 80, ../sass/components/_buttons.scss */
+.icn-right {
+  position: relative;
+  padding-right: 3em;
+  text-align: left;
+}
+/* line 85, ../sass/components/_buttons.scss */
+.icn-right .fa {
+  position: absolute;
+  top: 50%;
+  right: 1.3em;
+  margin-right: -15px;
+  margin-top: -10px;
+  font-size: 1.3em;
+}
+
+/* line 93, ../sass/components/_buttons.scss */
+.btn-icn {
+  font-size: 1.5em;
+  padding: 3px 8px;
+}
+
+/* toggle trigger */
+/* line 101, ../sass/components/_buttons.scss */
+.btn-toggle-group > button {
+  min-width: 170px;
+}
+
+/*  Button list */
+/* line 108, ../sass/components/_buttons.scss */
+ul.btn-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 809, ../sass/scut/_scut.scss */
+ul.btn-list > li {
+  display: inline-block;
+}
+/* line 112, ../sass/components/_buttons.scss */
+ul.btn-list li {
+  margin: 3px;
+  float: left;
+}
+
+/* wide btn */
+/* line 121, ../sass/components/_buttons.scss */
+.btn.btn-wide {
+  min-width: 200px;
+}
+
+/********************************************
+3d buttin
+********************************************/
+/* line 129, ../sass/components/_buttons.scss */
+.btn.btn3d {
+  position: relative;
+  outline: medium none;
+  -moz-outline-style: none;
+  border: 0px;
+  top: 0;
+}
+/* line 137, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-primary {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #558000, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-primary:hover {
+  background: #70a800;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-primary:active {
+  background: #5c8a00;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 141, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-default {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #f2f2f2, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-default:hover {
+  background: white;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-default:active {
+  background: #f7f7f7;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 145, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-success {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #4cae4c, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-success:hover {
+  background: #67bd67;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-success:active {
+  background: #51b351;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 149, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-warning {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #eea236, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-warning:hover {
+  background: #f1b45c;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-warning:active {
+  background: #efa640;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 153, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-danger {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #d43f3a, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-danger:hover {
+  background: #dc5f5c;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-danger:active {
+  background: #d64742;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 157, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-info {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #46b8da, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-info:hover {
+  background: #68c5e1;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-info:active {
+  background: #4ebbdb;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* line 161, ../sass/components/_buttons.scss */
+.btn.btn3d.btn-inverse {
+  box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 0 2px 0 0 #252428, 0 2px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+/* line 113, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-inverse:hover {
+  background: #38373d;
+}
+/* line 117, ../sass/components/_mixins.scss */
+.btn.btn3d.btn-inverse:active {
+  background: #2a292d;
+  -webkit-transition: all 70ms ease-in-out;
+  transition: all 70ms ease-in-out;
+  top: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+/*
+    callout 
+*/
+/* line 5, ../sass/components/_callouts.scss */
+.callout.center > .inner {
+  margin: 0px auto;
+  display: table;
+}
+
+/* line 10, ../sass/components/_callouts.scss */
+.callout .btn {
+  margin: 5px;
+}
+
+/*  aaargh */
+@font-face {
+  font-family: "aaargh";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/aaargh/regular/Aaargh-webfont.eot");
+  src: url("fonts/aaargh/regular/Aaargh-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/aaargh/regular/Aaargh-webfont.woff") format("woff"), url("fonts/aaargh/regular/Aaargh-webfont.ttf") format("truetype"), url("fonts/aaargh/regular/Aaargh-webfont.svg#aaargh") format("svg");
+}
+
+/* Cantarell */
+@font-face {
+  font-family: "cantarell";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/cantarell/regular/Cantarell-Regular-webfont.eot");
+  src: url("fonts/cantarell/regular/Cantarell-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/cantarell/regular/Cantarell-Regular-webfont.woff") format("woff"), url("fonts/cantarell/regular/Cantarell-Regular-webfont.ttf") format("truetype"), url("fonts/cantarell/regular/Cantarell-Regular-webfont.svg#cantarell") format("svg");
+}
+
+@font-face {
+  font-family: "cantarell";
+  font-weight: bold;
+  font-style: normal;
+  src: url("fonts/cantarell/bold/Cantarell-Bold-webfont.eot");
+  src: url("fonts/cantarell/bold/Cantarell-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/cantarell/bold/Cantarell-Bold-webfont.woff") format("woff"), url("fonts/cantarell/bold/Cantarell-Bold-webfont.ttf") format("truetype"), url("fonts/cantarell/bold/Cantarell-Bold-webfont.svg#cantarell") format("svg");
+}
+
+/* Caviar Dreams */
+@font-face {
+  font-family: "caviar_dreams";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/caviardreams/regular/CaviarDreams-webfont.eot");
+  src: url("fonts/caviardreams/regular/CaviarDreams-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/caviardreams/regular/CaviarDreams-webfont.woff") format("woff"), url("fonts/caviardreams/regular/CaviarDreams-webfont.ttf") format("truetype"), url("fonts/caviardreams/regular/CaviarDreams-webfont.svg#caviar_dreams") format("svg");
+}
+
+@font-face {
+  font-family: "caviar_dreams";
+  font-weight: bold;
+  font-style: normal;
+  src: url("fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont.eot");
+  src: url("fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont.woff") format("woff"), url("fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont.ttf") format("truetype"), url("fonts/caviardreams/bold/Caviar_Dreams_Bold-webfont.svg#caviar_dreams") format("svg");
+}
+
+/* daniel */
+@font-face {
+  font-family: "daniel";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/daniel/regular/daniel-webfont.eot");
+  src: url("fonts/daniel/regular/daniel-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/daniel/regular/daniel-webfont.woff") format("woff"), url("fonts/daniel/regular/daniel-webfont.ttf") format("truetype"), url("fonts/daniel/regular/daniel-webfont.svg#daniel") format("svg");
+}
+
+@font-face {
+  font-family: "daniel";
+  font-weight: bold;
+  font-style: normal;
+  src: url("fonts/daniel/bold/danielbd-webfont.eot");
+  src: url("fonts/daniel/bold/danielbd-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/daniel/bold/danielbd-webfont.woff") format("woff"), url("fonts/daniel/bold/danielbd-webfont.ttf") format("truetype"), url("fonts/daniel/bold/danielbd-webfont.svg#daniel") format("svg");
+}
+
+/* Open Sans */
+@font-face {
+  font-family: "open_sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/regular/OpenSans-Regular-webfont.eot");
+  src: url("fonts/opensans/regular/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/regular/OpenSans-Regular-webfont.woff") format("woff"), url("fonts/opensans/regular/OpenSans-Regular-webfont.ttf") format("truetype"), url("fonts/opensans/regular/OpenSans-Regular-webfont.svg#open_sans") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansIc";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/italic/OpenSans-Italic-webfont.eot");
+  src: url("fonts/opensans/italic/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/italic/OpenSans-Italic-webfont.woff") format("woff"), url("fonts/opensans/italic/OpenSans-Italic-webfont.ttf") format("truetype"), url("fonts/opensans/italic/OpenSans-Italic-webfont.svg#open_sansIc") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansLt";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/light/OpenSans-Light-webfont.eot");
+  src: url("fonts/opensans/light/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/light/OpenSans-Light-webfont.woff") format("woff"), url("fonts/opensans/light/OpenSans-Light-webfont.ttf") format("truetype"), url("fonts/opensans/light/OpenSans-Light-webfont.svg#open_sansLt") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansLtIc";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/lightitalic/OpenSans-LightItalic-webfont.eot");
+  src: url("fonts/opensans/lightitalic/OpenSans-LightItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/lightitalic/OpenSans-LightItalic-webfont.woff") format("woff"), url("fonts/opensans/lightitalic/OpenSans-LightItalic-webfont.ttf") format("truetype"), url("fonts/opensans/lightitalic/OpenSans-LightItalic-webfont.svg#open_sansLtIc") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansB";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/bold/OpenSans-Bold-webfont.eot");
+  src: url("fonts/opensans/bold/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/bold/OpenSans-Bold-webfont.woff") format("woff"), url("fonts/opensans/bold/OpenSans-Bold-webfont.ttf") format("truetype"), url("fonts/opensans/bold/OpenSans-Bold-webfont.svg#open_sansB") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansSb";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/semibold/OpenSans-Semibold-webfont.eot");
+  src: url("fonts/opensans/semibold/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/semibold/OpenSans-Semibold-webfont.woff") format("woff"), url("fonts/opensans/semibold/OpenSans-Semibold-webfont.ttf") format("truetype"), url("fonts/opensans/semibold/OpenSans-Semibold-webfont.svg#open_sansSb") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansSbIt";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont.eot");
+  src: url("fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont.woff") format("woff"), url("fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont.ttf") format("truetype"), url("fonts/opensans/semibolditalic/OpenSans-SemiboldItalic-webfont.svg#open_sansSbIt") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansBItc";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont.eot");
+  src: url("fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont.woff") format("woff"), url("fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("fonts/opensans/bolditalic/OpenSans-BoldItalic-webfont.svg#open_sansBItc") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansEb";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/extrabold/OpenSans-ExtraBold-webfont.eot");
+  src: url("fonts/opensans/extrabold/OpenSans-ExtraBold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/extrabold/OpenSans-ExtraBold-webfont.woff") format("woff"), url("fonts/opensans/extrabold/OpenSans-ExtraBold-webfont.ttf") format("truetype"), url("fonts/opensans/extrabold/OpenSans-ExtraBold-webfont.svg#open_sansEb") format("svg");
+}
+
+@font-face {
+  font-family: "open_sansEbItc";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont.eot");
+  src: url("fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont.woff") format("woff"), url("fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont.ttf") format("truetype"), url("fonts/opensans/extrabolditalic/OpenSans-ExtraBoldItalic-webfont.svg#open_sansEbItc") format("svg");
+}
+
+/* line 1, ../sass/components/_form.scss */
+form {
+  padding-bottom: 40px;
+  display: block;
+}
+/* line 10, ../sass/scut/_scut.scss */
+form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 6, ../sass/components/_form.scss */
+form .row {
+  padding-top: 40px;
+}
+
+/* line 11, ../sass/components/_form.scss */
+.form-control {
+  border-radius: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+/* line 16, ../sass/components/_form.scss */
+.form-control:focus {
+  border: 1px solid #99ff33;
+}
+
+/* line 21, ../sass/components/_form.scss */
+textarea.form-control {
+  padding-top: 9px;
+}
+
+/* line 25, ../sass/components/_form.scss */
+.input-group {
+  z-index: 1;
+}
+/* line 29, ../sass/components/_form.scss */
+.input-group.w-select {
+  z-index: 9;
+}
+/* line 33, ../sass/components/_form.scss */
+.input-group.w-select-addon {
+  z-index: 10;
+}
+
+/* line 38, ../sass/components/_form.scss */
+.input-group.w-addons {
+  width: 100%;
+}
+/* line 46, ../sass/components/_form.scss */
+.input-group.w-addons.focused .form-control:focus,
+.input-group.w-addons.focused .form-control.valid, .input-group.w-addons.valid .form-control:focus,
+.input-group.w-addons.valid .form-control.valid {
+  color: #cccc00;
+  box-shadow: none;
+  font-weight: 500;
+}
+/* line 52, ../sass/components/_form.scss */
+.input-group.w-addons.focused .form-control:focus ~ .input-group-addon,
+.input-group.w-addons.focused .form-control.valid ~ .input-group-addon, .input-group.w-addons.valid .form-control:focus ~ .input-group-addon,
+.input-group.w-addons.valid .form-control.valid ~ .input-group-addon {
+  color: #cccc00;
+}
+/* line 57, ../sass/components/_form.scss */
+.input-group.w-addons.focused .input-group-addon, .input-group.w-addons.valid .input-group-addon {
+  color: #cccc00;
+}
+/* line 64, ../sass/components/_form.scss */
+.input-group.w-addons.focused .bootstrap-select:not(.input-group-addon) span, .input-group.w-addons.focused .bootstrap-select:not(.input-group-addon) i.glyphicon, .input-group.w-addons.valid .bootstrap-select:not(.input-group-addon) span, .input-group.w-addons.valid .bootstrap-select:not(.input-group-addon) i.glyphicon {
+  color: rgba(1, 1, 1, 0.6);
+}
+/* line 69, ../sass/components/_form.scss */
+.input-group.w-addons.focused .bootstrap-select:not(.input-group-addon) ~ .input-group-addon,
+.input-group.w-addons.focused .bootstrap-select:not(.input-group-addon) span, .input-group.w-addons.focused .bootstrap-select:not(.input-group-addon) i.glyphicon, .input-group.w-addons.valid .bootstrap-select:not(.input-group-addon) ~ .input-group-addon,
+.input-group.w-addons.valid .bootstrap-select:not(.input-group-addon) span, .input-group.w-addons.valid .bootstrap-select:not(.input-group-addon) i.glyphicon {
+  color: #cccc00;
+}
+/* line 78, ../sass/components/_form.scss */
+.input-group.w-addons.error .form-control.error,
+.input-group.w-addons.error .bootstrap-select:not(.input-group-addon) {
+  color: red;
+  border: 1px solid red;
+}
+/* line 83, ../sass/components/_form.scss */
+.input-group.w-addons.error .input-group-addon {
+  color: red;
+}
+/* line 89, ../sass/components/_form.scss */
+.input-group.w-addons .Zebra_DatePicker_Icon_Wrapper {
+  width: 100%;
+  background: transparent;
+}
+/* line 94, ../sass/components/_form.scss */
+.input-group.w-addons .Zebra_DatePicker_Icon_Wrapper input {
+  background: #fff;
+  cursor: pointer;
+}
+/* line 98, ../sass/components/_form.scss */
+.input-group.w-addons .Zebra_DatePicker_Icon_Wrapper input:not(:focus) {
+  color: rgba(1, 1, 1, 0.6);
+}
+/* line 103, ../sass/components/_form.scss */
+.input-group.w-addons .Zebra_DatePicker_Icon_Wrapper button.Zebra_DatePicker_Icon {
+  background: none;
+}
+/* line 109, ../sass/components/_form.scss */
+.input-group.w-addons label.error {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  position: absolute;
+  font-weight: normal;
+  color: red;
+  display: block;
+  font-size: .9em;
+}
+/* line 118, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  background: transparent;
+  border: none;
+  width: 36px;
+  color: rgba(1, 1, 1, 0.3);
+  float: none;
+  margin: 0px;
+  padding: 0px;
+}
+/* line 128, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon span, .input-group.w-addons .input-group-addon i.glyphicon {
+  color: rgba(1, 1, 1, 0.6);
+}
+/* line 132, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon.open {
+  outline: none;
+}
+/* line 135, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon.open span, .input-group.w-addons .input-group-addon.open i.glyphicon {
+  color: #cccc00;
+}
+/* line 140, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon .fa {
+  margin-top: 2px;
+  font-size: 1.7em;
+}
+/* line 145, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon button {
+  vertical-align: middle;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100%;
+  border: none;
+}
+/* line 154, ../sass/components/_form.scss */
+.input-group.w-addons .bootstrap-select:not(.input-group-addon) {
+  position: relative;
+  outline: none;
+}
+/* line 159, ../sass/components/_form.scss */
+.input-group.w-addons .bootstrap-select:not(.input-group-addon) span, .input-group.w-addons .bootstrap-select:not(.input-group-addon) i.glyphicon {
+  color: rgba(1, 1, 1, 0.6);
+}
+/* line 163, ../sass/components/_form.scss */
+.input-group.w-addons .bootstrap-select:not(.input-group-addon).open {
+  border: 1px solid #99ff33;
+}
+/* line 167, ../sass/components/_form.scss */
+.input-group.w-addons .bootstrap-select:not(.input-group-addon).open ~ .input-group-addon,
+.input-group.w-addons .bootstrap-select:not(.input-group-addon).open span, .input-group.w-addons .bootstrap-select:not(.input-group-addon).open i.glyphicon {
+  color: #cccc00;
+}
+/* line 173, ../sass/components/_form.scss */
+.input-group.w-addons .bootstrap-select:not(.input-group-addon) button {
+  border: none;
+  vertical-align: middle;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 100%;
+  margin-right: 43px;
+}
+/* line 183, ../sass/components/_form.scss */
+.input-group.w-addons .input-group-addon.append {
+  left: auto;
+  right: 1px;
+}
+/* line 188, ../sass/components/_form.scss */
+.input-group.w-addons .form-control {
+  padding-left: 43px;
+  border-radius: 0px;
+}
+/* line 193, ../sass/components/_form.scss */
+.input-group.w-addons .form-control:focus, .input-group.w-addons .form-control.valid {
+  color: #cccc00;
+  box-shadow: none;
+  font-weight: 500;
+}
+/* line 199, ../sass/components/_form.scss */
+.input-group.w-addons .form-control:focus ~ .input-group-addon, .input-group.w-addons .form-control.valid ~ .input-group-addon {
+  color: #cccc00;
+}
+/* line 205, ../sass/components/_form.scss */
+.input-group.w-addons .form-control.error, .input-group.w-addons .form-control.error:focus {
+  color: red;
+  border: 1px solid red;
+}
+/* line 210, ../sass/components/_form.scss */
+.input-group.w-addons .form-control.error ~ .input-group-addon, .input-group.w-addons .form-control.error:focus ~ .input-group-addon {
+  color: red;
+}
+/* line 216, ../sass/components/_form.scss */
+.input-group.w-addons .form-control.input-block-level {
+  padding-left: 5px;
+  border-radius: 3px;
+  box-shadow: inset 3px 1px 18px rgba(0, 0, 0, 0.3);
+}
+/* line 221, ../sass/components/_form.scss */
+.input-group.w-addons .form-control.input-block-level:focus {
+  box-shadow: inset 3px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*
+    callout 
+*/
+/* line 5, ../sass/components/_callouts.scss */
+.callout.center > .inner {
+  margin: 0px auto;
+  display: table;
+}
+
+/* line 10, ../sass/components/_callouts.scss */
+.callout .btn {
+  margin: 5px;
+}
+
+/* line 1, ../sass/components/_parallax.scss */
+.parallax-background, .parallax-background-vrt {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  bottom: -30%;
+  left: -30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* line 8, ../sass/components/_parallax.scss */
+.parallax-background-vrt {
+  left: 0px;
+  right: 0px;
+}
+
+/* line 14, ../sass/components/_parallax.scss */
+.parallax-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* diagonal gloss background element */
+/* line 3, ../sass/components/_gloss.scss */
+*[class*="diag-gloss"] {
+  position: relative;
+  overflow: hidden;
+}
+/* line 7, ../sass/components/_gloss.scss */
+*[class*="diag-gloss"] > * {
+  z-index: 3;
+}
+
+/* line 13, ../sass/components/_gloss.scss */
+*[class*="diag-gloss"]:before,
+.before-diag-gloss {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: -52%;
+  right: 0;
+  bottom: 52%;
+  left: 0;
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: rgba(255, 255, 255, 0);
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.1)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  /* W3C */
+  z-index: 1;
+}
+
+/* line 23, ../sass/components/_gloss.scss */
+.diag-gloss-bright:before {
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: rgba(255, 255, 255, 0);
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.9)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  /* W3C */
+}
+
+/* line 1, ../sass/components/_icon.scss */
+.icon-prefix {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  position: relative;
+  margin-left: -27px;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+/* line 8, ../sass/components/_icon.scss */
+.icon-prefix .icon {
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+  position: absolute;
+  top: 18px;
+  left: 15px;
+}
+
+/* line 15, ../sass/components/_icon.scss */
+.icon-prefix.rotate-hvr:hover {
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+/* line 19, ../sass/components/_icon.scss */
+.icon-prefix.rotate-hvr:hover .icon {
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 32, ../sass/components/_icon.scss */
+i[class*="flaticon-"]:after,
+i[class^="flaticon-"]:before {
+  font-size: inherit;
+  margin-left: 0px;
+  line-height: 1em;
+  font-weight: normal;
+}
+
+@media (min-width: 992px) {
+  /* line 40, ../sass/components/_icon.scss */
+  .icon-prefix {
+    margin-left: 0px;
+  }
+}
+/* line 1, ../sass/components/_img.scss */
+.img {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* line 7, ../sass/components/_img.scss */
+.img img {
+  height: 100%;
+  width: auto;
+  -webkit-border-radius: inherit;
+  -moz-border-radius: inherit;
+  -o-border-radius: inherit;
+  border-radius: inherit;
+}
+
+/* line 16, ../sass/components/_img.scss */
+.img .img-overlay {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 0px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* line 27, ../sass/components/_img.scss */
+.img .img-overlay > .img-overlay-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  margin-top: -35px;
+  text-align: center;
+  opacity: 0;
+}
+
+/* line 38, ../sass/components/_img.scss */
+.img .img-overlay > .img-overlay-buttons > .s-button {
+  height: 60px;
+  width: 60px;
+}
+
+/* line 44, ../sass/components/_img.scss */
+.img .img-overlay > .img-overlay-buttons > .s-button > i {
+  position: absolute;
+  height: 30px;
+  width: 40px;
+  margin-left: -20px;
+  margin-top: -15px;
+  top: 50%;
+  left: 50%;
+}
+
+/* img zoom in on hover */
+/* line 56, ../sass/components/_img.scss */
+.img.zoom {
+  -webkit-transition: all 240ms ease-in-out;
+  -moz-transition: all 240ms ease-in-out;
+  -ms-transition: all 240ms ease-in-out;
+  -o-transition: all 240ms ease-in-out;
+  transition: all 240ms ease-in-out;
+}
+
+/* line 64, ../sass/components/_img.scss */
+.img.zoom.zoom-slow {
+  -webkit-transition: all 740ms ease-in-out;
+  -moz-transition: all 740ms ease-in-out;
+  -ms-transition: all 740ms ease-in-out;
+  -o-transition: all 740ms ease-in-out;
+  transition: all 740ms ease-in-out;
+}
+
+/* line 72, ../sass/components/_img.scss */
+.img.zoom:hover > img {
+  -webkit-transition: all 140ms ease-in-out;
+  -moz-transition: all 140ms ease-in-out;
+  -ms-transition: all 140ms ease-in-out;
+  -o-transition: all 140ms ease-in-out;
+  transition: all 140ms ease-in-out;
+  -moz-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=-0, M21=0, M22=1);
+}
+
+/* line 2, ../sass/components/_modals.scss */
+.mfp-wrap {
+  cursor: default;
+}
+
+/* line 7, ../sass/components/_modals.scss */
+.modal[class*="w-bg-overlay"],
+.mfp-wrap[class*="w-bg-overlay"] {
+  position: fixed;
+}
+
+/* line 11, ../sass/components/_modals.scss */
+.modal-backdrop {
+  background: transparent;
+}
+
+/* line 15, ../sass/components/_modals.scss */
+.modal-dialog {
+  margin-top: 50px;
+}
+
+/* line 19, ../sass/components/_modals.scss */
+.modal-content {
+  border-radius: 0px;
+}
+
+/*
+    gloss hover
+*/
+@media all and (min-width: 700px) {
+  /* line 32, ../sass/components/_modals.scss */
+  .modal-dialog {
+    width: 700px;
+  }
+}
+/* line 1, ../sass/components/_nav.scss */
+.navtop {
+  position: relative;
+}
+
+/* line 10, ../sass/components/_nav.scss */
+nav.nav-main ul > li + li {
+  margin-left: 0px;
+}
+/* line 15, ../sass/components/_nav.scss */
+nav.nav-main ul > li a {
+  background: transparent;
+  -webkit-transition: background 155ms ease-in-out;
+  transition: background 155ms ease-in-out;
+}
+/* line 19, ../sass/components/_nav.scss */
+nav.nav-main ul > li a:hover {
+  color: #669900;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+  background: #fff;
+}
+/* line 28, ../sass/components/_nav.scss */
+nav.nav-main ul > li.active a {
+  color: #669900;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+  background: #fff;
+}
+/* line 34, ../sass/components/_nav.scss */
+nav.nav-main ul > li.active a:hover {
+  color: #669900;
+  background: #fff;
+}
+
+/* line 46, ../sass/components/_nav.scss */
+#main-nav-row {
+  background: #fff;
+  -webkit-transition: all 255ms ease-in-out;
+  transition: all 255ms ease-in-out;
+}
+/* line 51, ../sass/components/_nav.scss */
+#main-nav-row.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99998;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+/* line 58, ../sass/components/_nav.scss */
+#main-nav-row.fixed:hover {
+  opacity: 1;
+  -webkit-transition: all 255ms ease-in-out;
+  transition: all 255ms ease-in-out;
+}
+
+/* line 67, ../sass/components/_nav.scss */
+body.sidr-open #main-nav-row.fixed {
+  left: -260px;
+}
+
+@media (min-width: 768px) {
+  /* line 77, ../sass/components/_nav.scss */
+  #main-nav-row.fixed {
+    margin-top: -15px;
+  }
+  /* line 80, ../sass/components/_nav.scss */
+  #main-nav-row.fixed:hover {
+    margin-top: 0px;
+    opacity: 1;
+    -webkit-transition: all 255ms ease-in-out;
+    transition: all 255ms ease-in-out;
+  }
+  /* line 86, ../sass/components/_nav.scss */
+  #main-nav-row.fixed.nav-down-scroll {
+    margin-top: -100px;
+  }
+
+  /* line 95, ../sass/components/_nav.scss */
+  body.logged-in #main-nav-row.fixed {
+    margin-top: 15px;
+  }
+  /* line 99, ../sass/components/_nav.scss */
+  body.logged-in #main-nav-row.fixed:hover {
+    margin-top: 32px;
+  }
+  /* line 103, ../sass/components/_nav.scss */
+  body.logged-in #main-nav-row.fixed.nav-down-scroll {
+    margin-top: -100px;
+  }
+}
+/* overlays */
+/* line 5, ../sass/components/_overlays.scss */
+*[class*="w-bg-overlay"] > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* line 11, ../sass/components/_overlays.scss */
+*[class*="w-bg-overlay"]:after {
+  z-index: 1;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: .5;
+}
+
+/* line 20, ../sass/components/_overlays.scss */
+*[class*="w-bg-overlay"].overlay-mask:after {
+  opacity: .9;
+}
+
+/* mesh background overlay */
+/* line 27, ../sass/components/_overlays.scss */
+.w-bg-overlay-mesh:after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQIW2NkYGD4D8SMQAwhgMAYiM/COCCB/wAzPAMD4zaE0wAAAABJRU5ErkJggg==");
+}
+
+/* background overlay colors */
+/* http://www.paulund.co.uk/creating-different-css3-box-shadows-effects */
+/* line 3, ../sass/components/_shadow.scss */
+.shdw-6 {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 7, ../sass/components/_shadow.scss */
+.shdw-6:before, .shdw-6:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  top: 50%;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+
+/* line 20, ../sass/components/_shadow.scss */
+.shdw-inset-top {
+  box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.3);
+}
+
+/*==========================================
+slider navigation styling
+============================================*/
+/* line 9, ../sass/components/_sliders.scss */
+.sldr-nav > ul,
+.flex-control-nav {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px 10px;
+  margin: 0px auto;
+}
+/* line 809, ../sass/scut/_scut.scss */
+.sldr-nav > ul > li,
+.flex-control-nav > li {
+  display: inline-block;
+}
+/* line 14, ../sass/components/_sliders.scss */
+.sldr-nav > ul li,
+.flex-control-nav li {
+  padding-left: 5px;
+}
+/* line 17, ../sass/components/_sliders.scss */
+.sldr-nav > ul li:first-child,
+.flex-control-nav li:first-child {
+  padding: 0px;
+}
+/* line 21, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a,
+.flex-control-nav li a {
+  display: inline-block;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  padding: 3px;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+}
+/* line 30, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a:before,
+.flex-control-nav li a:before {
+  content: "";
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.5), inset 0px 0px 20px rgba(0, 0, 0, 0.25);
+  border-radius: inherit;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+/* line 38, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a:hover,
+.flex-control-nav li a:hover {
+  background: #fff;
+}
+/* line 41, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a:hover:before,
+.flex-control-nav li a:hover:before {
+  box-shadow: none;
+  background: #669900;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #669900), color-stop(100%, #99ff33));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #669900 0%, #99ff33 100%);
+  /* W3C */
+}
+/* line 50, ../sass/components/_sliders.scss */
+.sldr-nav > ul li.active a:before,
+.flex-control-nav li.active a:before {
+  box-shadow: none;
+  background: #669900;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #669900), color-stop(100%, #99ff33));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #669900 0%, #99ff33 100%);
+  /* W3C */
+}
+/* line 56, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a.flex-active,
+.flex-control-nav li a.flex-active {
+  background: #fff;
+}
+/* line 59, ../sass/components/_sliders.scss */
+.sldr-nav > ul li a.flex-active:before,
+.flex-control-nav li a.flex-active:before {
+  box-shadow: none;
+  background: #669900;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #669900), color-stop(100%, #99ff33));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #669900 0%, #99ff33 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #669900 0%, #99ff33 100%);
+  /* W3C */
+}
+
+/* line 68, ../sass/components/_sliders.scss */
+.testimonial-sldr .flex-control-nav {
+  padding: 15px 20px;
+}
+
+/* line 2, ../sass/components/_tabs.scss */
+ul.tabable,
+ol.tabable {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 6, ../sass/components/_tabs.scss */
+ul.tabable > li.tab,
+ol.tabable > li.tab {
+  display: none;
+}
+/* line 10, ../sass/components/_tabs.scss */
+ul.tabable > li.tab.active,
+ol.tabable > li.tab.active {
+  display: block;
+}
+
+/* line 3, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail {
+  padding: 0px;
+  border-radius: 0px;
+  margin: 0px auto;
+  border: none;
+  position: relative;
+  -webkit-transition: none;
+  transition: none;
+}
+/* line 12, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail > .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background: #fff;
+  z-index: 2;
+  display: block;
+  visibility: hidden;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+/* line 22, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail > .action {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: -50px;
+  display: block;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 100ms ease-in-out, margin 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out, margin 100ms ease-in-out;
+}
+/* line 31, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail > .action > .inner {
+  display: table;
+  margin: 0px auto;
+}
+/* line 35, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail > .action > .inner .btn {
+  margin-left: 8px;
+}
+/* line 43, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail > img {
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+/* line 48, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail:hover {
+  -webkit-transition: none;
+  transition: none;
+}
+/* line 52, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail:hover > .overlay {
+  visibility: visible;
+  opacity: .5;
+  -webkit-transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
+  border: 1px solid #669900;
+}
+/* line 59, ../sass/components/_thumbnails.scss */
+.thumb-group .thumbnail:hover > .action {
+  opacity: 1;
+  visibility: visible;
+  margin-top: -20px;
+  -webkit-transition: opacity 150ms ease-in-out, margin 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, margin 150ms ease-in-out;
+}
+
+/* line 2, ../sass/components/_tabs.scss */
+ul.tabable,
+ol.tabable {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 6, ../sass/components/_tabs.scss */
+ul.tabable > li.tab,
+ol.tabable > li.tab {
+  display: none;
+}
+/* line 10, ../sass/components/_tabs.scss */
+ul.tabable > li.tab.active,
+ol.tabable > li.tab.active {
+  display: block;
+}
+
+/********** TYPOGRAPHY *****************
+* All styles related to paragraphs, headings
+* bloquotes and other type. 
+*******************************************/
+/* line 7, ../sass/components/_typography.scss */
+p {
+  font-size: 1.25em;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0px 25px;
+  color: #555;
+}
+
+/* line 14, ../sass/components/_typography.scss */
+p.lead {
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+/* line 19, ../sass/components/_typography.scss */
+a {
+  text-decoration: none;
+  color: #669900;
+}
+/* line 23, ../sass/components/_typography.scss */
+a:hover {
+  color: #99ff33;
+  text-decoration: none;
+  -webkit-transition: all 155ms ease-in-out;
+  transition: all 155ms ease-in-out;
+}
+
+/* line 30, ../sass/components/_typography.scss */
+a.em-light {
+  color: #c6c8d4;
+}
+/* line 33, ../sass/components/_typography.scss */
+a.em-light:hover {
+  color: #eeeeee;
+}
+
+/* line 43, ../sass/components/_typography.scss */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: inherit;
+}
+
+/* line 51, ../sass/components/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: inherit;
+}
+
+/* line 55, ../sass/components/_typography.scss */
+.em-color {
+  color: #669900;
+}
+
+/* line 59, ../sass/components/_typography.scss */
+.em-upper {
+  text-transform: uppercase;
+}
+
+/*  default heading sizes */
+/* line 65, ../sass/components/_typography.scss */
+h1 {
+  font-size: 2em;
+}
+
+/* line 69, ../sass/components/_typography.scss */
+h2 {
+  font-size: 1.8em;
+}
+
+/* line 73, ../sass/components/_typography.scss */
+h3 {
+  font-size: 1.6em;
+}
+
+/* line 77, ../sass/components/_typography.scss */
+h4 {
+  font-size: 1.4em;
+}
+
+/* line 81, ../sass/components/_typography.scss */
+h5 {
+  font-size: 1.2em;
+}
+
+/* line 85, ../sass/components/_typography.scss */
+h6 {
+  font-size: 1.1em;
+}
+
+/* line 94, ../sass/components/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  position: relative;
+  z-index: 9;
+  color: #555555;
+}
+
+/* line 108, ../sass/components/_typography.scss */
+h1.center,
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center,
+p.center {
+  text-align: center;
+}
+
+/*  emphasis 
+   the folllowing em- prefixed styles represent any style
+   used to emphasize text 
+*/
+/* line 118, ../sass/components/_typography.scss */
+em {
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+/* line 123, ../sass/components/_typography.scss */
+.em-light {
+  color: white;
+}
+
+/*  .dashes used to pace dashes on either end of emphasized text */
+/* line 130, ../sass/components/_typography.scss */
+.em-dashes,
+em.dashes {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 1439, ../sass/scut/_scut.scss */
+.em-dashes:before, .em-dashes:after,
+em.dashes:before,
+em.dashes:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 50%;
+  border-top-style: dotted;
+  border-top-width: 1px;
+}
+/* line 1467, ../sass/scut/_scut.scss */
+.em-dashes:before,
+em.dashes:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+/* line 1471, ../sass/scut/_scut.scss */
+.em-dashes:after,
+em.dashes:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+/* line 134, ../sass/components/_typography.scss */
+.em-dashes-double {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 1439, ../sass/scut/_scut.scss */
+.em-dashes-double:before, .em-dashes-double:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 50%;
+  border-top-style: dotted;
+  border-top-width: 1px;
+  bottom: 0.05em;
+  height: 0.3em;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+/* line 1467, ../sass/scut/_scut.scss */
+.em-dashes-double:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+/* line 1471, ../sass/scut/_scut.scss */
+.em-dashes-double:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+/* dash left and right */
+/*
+.em-ldash{
+    @include scut-bookends(0.25em, "\2014" "");    
+}
+
+.em-rdash{
+    @include scut-bookends(0.25em, "" "\2014");    
+}
+*/
+/*  . slim displays text using thinner  styled font */
+/* line 152, ../sass/components/_typography.scss */
+.em-slim,
+em.slim {
+  font-family: "Open Sans", sans-serif;
+}
+
+/*  .slick  display text with special empasizing  font  */
+/* line 159, ../sass/components/_typography.scss */
+.em-slick,
+em.slick {
+  font-family: caviar_dreams;
+}
+
+/* line 164, ../sass/components/_typography.scss */
+.em-handw {
+  font-family: daniel;
+}
+
+/*  .bold  style */
+/* line 171, ../sass/components/_typography.scss */
+.em-bold,
+strong,
+em.bold {
+  font-weight: bold;
+}
+
+/*  emphasis sizes */
+/*  priority level 4*/
+/* line 179, ../sass/components/_typography.scss */
+.em-delta {
+  font-size: 1.05em;
+}
+
+/* line 183, ../sass/components/_typography.scss */
+h1.em-delta {
+  font-size: 2.1em;
+}
+
+/* line 187, ../sass/components/_typography.scss */
+h2.em-delta {
+  font-size: 1.89em;
+}
+
+/* line 191, ../sass/components/_typography.scss */
+h3.em-delta {
+  font-size: 1.68em;
+}
+
+/* line 195, ../sass/components/_typography.scss */
+h4.em-delta {
+  font-size: 1.47em;
+}
+
+/* line 199, ../sass/components/_typography.scss */
+h5.em-delta {
+  font-size: 1.26em;
+}
+
+/* line 203, ../sass/components/_typography.scss */
+h6.em-delta {
+  font-size: 1.155em;
+}
+
+/*  priority level 3 */
+/* line 210, ../sass/components/_typography.scss */
+.em-gamma {
+  font-size: 1.1em;
+}
+
+/* line 214, ../sass/components/_typography.scss */
+h1.em-gamma {
+  font-size: 2.3em;
+}
+
+/* line 218, ../sass/components/_typography.scss */
+h2.em-gamma {
+  font-size: 2.07em;
+}
+
+/* line 222, ../sass/components/_typography.scss */
+h3.em-gamma {
+  font-size: 1.84em;
+}
+
+/* line 226, ../sass/components/_typography.scss */
+h4.em-gamma {
+  font-size: 1.61em;
+}
+
+/* line 230, ../sass/components/_typography.scss */
+h5.em-gamma {
+  font-size: 1.38em;
+}
+
+/* line 234, ../sass/components/_typography.scss */
+h6.em-gamma {
+  font-size: 1.265em;
+}
+
+/*  priority level 2 */
+/* line 241, ../sass/components/_typography.scss */
+.em-beta {
+  font-size: 1.35em;
+}
+
+/* line 245, ../sass/components/_typography.scss */
+h1.em-beta {
+  font-size: 2.7em;
+}
+
+/* line 249, ../sass/components/_typography.scss */
+h2.em-beta {
+  font-size: 2.43em;
+}
+
+/* line 253, ../sass/components/_typography.scss */
+h3.em-beta {
+  font-size: 2.16em;
+}
+
+/* line 257, ../sass/components/_typography.scss */
+h4.em-beta {
+  font-size: 1.89em;
+}
+
+/* line 261, ../sass/components/_typography.scss */
+h5.em-beta {
+  font-size: 1.62em;
+}
+
+/* line 265, ../sass/components/_typography.scss */
+h6.em-beta {
+  font-size: 1.485em;
+}
+
+/* priority level one */
+/* line 271, ../sass/components/_typography.scss */
+.em-alpha {
+  font-size: 1.8em;
+}
+
+/* line 275, ../sass/components/_typography.scss */
+h1.em-alpha {
+  font-size: 3.6em;
+}
+
+/* line 279, ../sass/components/_typography.scss */
+h2.em-alpha {
+  font-size: 3.24em;
+}
+
+/* line 283, ../sass/components/_typography.scss */
+h3.em-alpha {
+  font-size: 2.88em;
+}
+
+/* line 287, ../sass/components/_typography.scss */
+h4.em-alpha {
+  font-size: 2.52em;
+}
+
+/* line 291, ../sass/components/_typography.scss */
+h5.em-alpha {
+  font-size: 2.16em;
+}
+
+/* line 295, ../sass/components/_typography.scss */
+h6.em-alpha {
+  font-size: 1.98em;
+}
+
+/* line 300, ../sass/components/_typography.scss */
+.em-mega {
+  font-size: 2em;
+}
+
+/*  deemphasis */
+/* line 306, ../sass/components/_typography.scss */
+.dem-slim {
+  font-weight: normal;
+}
+
+/* dem sizes */
+/* line 313, ../sass/components/_typography.scss */
+h1.dem,
+h1 .dem {
+  font-size: 1em;
+}
+
+/* line 317, ../sass/components/_typography.scss */
+.dem-alpha {
+  font-size: .4em;
+}
+
+/* line 321, ../sass/components/_typography.scss */
+h1.dem-alpha {
+  font-size: 0.8em;
+}
+
+/* line 325, ../sass/components/_typography.scss */
+h2.dem-alpha {
+  font-size: 0.72em;
+}
+
+/* line 329, ../sass/components/_typography.scss */
+h3.dem-alpha {
+  font-size: 0.64em;
+}
+
+/* line 333, ../sass/components/_typography.scss */
+h4.dem-alpha {
+  font-size: 0.56em;
+}
+
+/* line 337, ../sass/components/_typography.scss */
+h5.dem-alpha {
+  font-size: 0.48em;
+}
+
+/* line 341, ../sass/components/_typography.scss */
+h6.dem-alpha {
+  font-size: 0.44em;
+}
+
+/* line 345, ../sass/components/_typography.scss */
+.dem-beta {
+  font-size: .55em;
+}
+
+/* line 349, ../sass/components/_typography.scss */
+h1.dem-beta {
+  font-size: 1.1em;
+}
+
+/* line 353, ../sass/components/_typography.scss */
+h2.dem-beta {
+  font-size: 0.99em;
+}
+
+/* line 357, ../sass/components/_typography.scss */
+h3.dem-beta {
+  font-size: 0.88em;
+}
+
+/* line 361, ../sass/components/_typography.scss */
+h4.dem-beta {
+  font-size: 0.77em;
+}
+
+/* line 365, ../sass/components/_typography.scss */
+h5.dem-beta {
+  font-size: 0.66em;
+}
+
+/* line 369, ../sass/components/_typography.scss */
+h6.dem-beta {
+  font-size: 0.605em;
+}
+
+/* line 373, ../sass/components/_typography.scss */
+.dem-gamma {
+  font-size: .7em;
+}
+
+/* line 377, ../sass/components/_typography.scss */
+h1.dem-gamma {
+  font-size: 1.4em;
+}
+
+/* line 381, ../sass/components/_typography.scss */
+h2.dem-gamma {
+  font-size: 1.26em;
+}
+
+/* line 385, ../sass/components/_typography.scss */
+h3.dem-gamma {
+  font-size: 1.12em;
+}
+
+/* line 389, ../sass/components/_typography.scss */
+h4.dem-gamma {
+  font-size: 0.98em;
+}
+
+/* line 393, ../sass/components/_typography.scss */
+h5.dem-gamma {
+  font-size: 0.84em;
+}
+
+/* line 397, ../sass/components/_typography.scss */
+h6.dem-gamma {
+  font-size: 0.77em;
+}
+
+/* 
+    for use with new lines in h tags -
+   instead of using <br> we chose this method of wrapping
+   the text line with <span class="line">Some heading text</span> 
+   to allow  specific line of a h tag to be maniulated .
+*/
+/* line 408, ../sass/components/_typography.scss */
+.line, .line-flat, .sub-heading {
+  display: inline-block;
+  width: 100%;
+  padding: .15em 0px;
+}
+
+/* line 414, ../sass/components/_typography.scss */
+.line-flat {
+  padding: 0px;
+}
+
+/* line 419, ../sass/components/_typography.scss */
+.sub-heading {
+  line-height: 1.5em;
+  padding-top: .5em;
+}
+
+/* line 425, ../sass/components/_typography.scss */
+.sub-heading.lead {
+  padding-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  /*  priority level 4*/
+  /* line 434, ../sass/components/_typography.scss */
+  .em-delta {
+    font-size: 1.3em;
+  }
+
+  /* line 438, ../sass/components/_typography.scss */
+  h1.em-delta {
+    font-size: 2.6em;
+  }
+
+  /* line 442, ../sass/components/_typography.scss */
+  h2.em-delta {
+    font-size: 2.34em;
+  }
+
+  /* line 446, ../sass/components/_typography.scss */
+  h3.em-delta {
+    font-size: 2.08em;
+  }
+
+  /* line 450, ../sass/components/_typography.scss */
+  h4.em-delta {
+    font-size: 1.82em;
+  }
+
+  /* line 454, ../sass/components/_typography.scss */
+  h5.em-delta {
+    font-size: 1.56em;
+  }
+
+  /* line 458, ../sass/components/_typography.scss */
+  h6.em-delta {
+    font-size: 1.43em;
+  }
+
+  /*  priority level 3 */
+  /* line 465, ../sass/components/_typography.scss */
+  .em-gamma {
+    font-size: 1.75em;
+  }
+
+  /* line 469, ../sass/components/_typography.scss */
+  h1.em-gamma {
+    font-size: 3em;
+  }
+
+  /* line 473, ../sass/components/_typography.scss */
+  h2.em-gamma {
+    font-size: 2.7em;
+  }
+
+  /* line 477, ../sass/components/_typography.scss */
+  h3.em-gamma {
+    font-size: 2.4em;
+  }
+
+  /* line 481, ../sass/components/_typography.scss */
+  h4.em-gamma {
+    font-size: 2.1em;
+  }
+
+  /* line 485, ../sass/components/_typography.scss */
+  h5.em-gamma {
+    font-size: 1.8em;
+  }
+
+  /* line 489, ../sass/components/_typography.scss */
+  h6.em-gamma {
+    font-size: 1.65em;
+  }
+
+  /*  priority level 2 */
+  /* line 496, ../sass/components/_typography.scss */
+  .em-beta {
+    font-size: 2em;
+  }
+
+  /* line 500, ../sass/components/_typography.scss */
+  h1.em-beta {
+    font-size: 4em;
+  }
+
+  /* line 504, ../sass/components/_typography.scss */
+  h2.em-beta {
+    font-size: 3.6em;
+  }
+
+  /* line 508, ../sass/components/_typography.scss */
+  h3.em-beta {
+    font-size: 3.2em;
+  }
+
+  /* line 512, ../sass/components/_typography.scss */
+  h4.em-beta {
+    font-size: 2.8em;
+  }
+
+  /* line 516, ../sass/components/_typography.scss */
+  h5.em-beta {
+    font-size: 2.4em;
+  }
+
+  /* line 520, ../sass/components/_typography.scss */
+  h6.em-beta {
+    font-size: 2.2em;
+  }
+
+  /* priority level one */
+  /* line 526, ../sass/components/_typography.scss */
+  .em-alpha {
+    font-size: 2.5em;
+  }
+
+  /* line 530, ../sass/components/_typography.scss */
+  h1.em-alpha {
+    font-size: 5em;
+  }
+
+  /* line 534, ../sass/components/_typography.scss */
+  h2.em-alpha {
+    font-size: 4.5em;
+  }
+
+  /* line 538, ../sass/components/_typography.scss */
+  h3.em-alpha {
+    font-size: 4em;
+  }
+
+  /* line 542, ../sass/components/_typography.scss */
+  h4.em-alpha {
+    font-size: 3.5em;
+  }
+
+  /* line 546, ../sass/components/_typography.scss */
+  h5.em-alpha {
+    font-size: 3em;
+  }
+
+  /* line 550, ../sass/components/_typography.scss */
+  h6.em-alpha {
+    font-size: 2.75em;
+  }
+
+  /* line 555, ../sass/components/_typography.scss */
+  .em-mega {
+    font-size: 3em;
+  }
+
+  /*  deemphasis */
+  /* line 561, ../sass/components/_typography.scss */
+  .dem-slim {
+    font-weight: normal;
+  }
+
+  /* dem sizes */
+  /* line 568, ../sass/components/_typography.scss */
+  h1.dem,
+  h1 .dem {
+    font-size: 1em;
+  }
+
+  /* line 572, ../sass/components/_typography.scss */
+  .dem-alpha {
+    font-size: .5em;
+  }
+
+  /* line 576, ../sass/components/_typography.scss */
+  h1.dem-alpha {
+    font-size: 1em;
+  }
+
+  /* line 580, ../sass/components/_typography.scss */
+  h2.dem-alpha {
+    font-size: 0.9em;
+  }
+
+  /* line 584, ../sass/components/_typography.scss */
+  h3.dem-alpha {
+    font-size: 0.8em;
+  }
+
+  /* line 588, ../sass/components/_typography.scss */
+  h4.dem-alpha {
+    font-size: 0.7em;
+  }
+
+  /* line 592, ../sass/components/_typography.scss */
+  h5.dem-alpha {
+    font-size: 0.6em;
+  }
+
+  /* line 596, ../sass/components/_typography.scss */
+  h6.dem-alpha {
+    font-size: 0.55em;
+  }
+
+  /* line 600, ../sass/components/_typography.scss */
+  .dem-beta {
+    font-size: .8em;
+  }
+
+  /* line 604, ../sass/components/_typography.scss */
+  h1.dem-beta {
+    font-size: 1.6em;
+  }
+
+  /* line 608, ../sass/components/_typography.scss */
+  h2.dem-beta {
+    font-size: 1.44em;
+  }
+
+  /* line 612, ../sass/components/_typography.scss */
+  h3.dem-beta {
+    font-size: 1.28em;
+  }
+
+  /* line 616, ../sass/components/_typography.scss */
+  h4.dem-beta {
+    font-size: 1.12em;
+  }
+
+  /* line 620, ../sass/components/_typography.scss */
+  h5.dem-beta {
+    font-size: 0.96em;
+  }
+
+  /* line 624, ../sass/components/_typography.scss */
+  h6.dem-beta {
+    font-size: 0.88em;
+  }
+
+  /* line 628, ../sass/components/_typography.scss */
+  .dem-gamma {
+    font-size: .9em;
+  }
+
+  /* line 632, ../sass/components/_typography.scss */
+  h1.dem-gamma {
+    font-size: 1.8em;
+  }
+
+  /* line 636, ../sass/components/_typography.scss */
+  h2.dem-gamma {
+    font-size: 1.62em;
+  }
+
+  /* line 640, ../sass/components/_typography.scss */
+  h3.dem-gamma {
+    font-size: 1.44em;
+  }
+
+  /* line 644, ../sass/components/_typography.scss */
+  h4.dem-gamma {
+    font-size: 1.26em;
+  }
+
+  /* line 648, ../sass/components/_typography.scss */
+  h5.dem-gamma {
+    font-size: 1.08em;
+  }
+
+  /* line 652, ../sass/components/_typography.scss */
+  h6.dem-gamma {
+    font-size: 0.99em;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+/* default widget css */
+/* line 3, ../sass/components/_widgets.scss */
+.widget {
+  margin-bottom: 40px;
+}
+/* line 12, ../sass/components/_widgets.scss */
+.widget .widget-inner ul#recentcomments li {
+  padding: 10px;
+}
+/* line 23, ../sass/components/_widgets.scss */
+.widget .widget-inner > ul:not(#recentcomments) li a {
+  display: block;
+  padding: 13px 10px;
+  border-bottom: 1px dotted rgba(3, 3, 3, 0.3);
+  color: #444;
+}
+/* line 32, ../sass/components/_widgets.scss */
+.widget .widget-inner > ul:not(#recentcomments) li:hover a:first-child {
+  background-color: rgba(3, 3, 3, 0.05);
+  color: #669900;
+  text-indent: 5px;
+}
+
+/* line 50, ../sass/components/_widgets.scss */
+footer.footer .widget .widget-inner h3 {
+  color: #ccc;
+}
+/* line 54, ../sass/components/_widgets.scss */
+footer.footer .widget .widget-inner > ul:not(#recentcomments) {
+  margin: 0px auto;
+}
+/* line 58, ../sass/components/_widgets.scss */
+footer.footer .widget .widget-inner > ul:not(#recentcomments) li > a {
+  color: #eee;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+/********** LISTS *****************
+* ol and ul helpers and list styles
+***********************************/
+/* line 9, ../sass/components/_lists.scss */
+ul.list li > a,
+ol.list li > a {
+  display: block;
+  padding: 10px;
+}
+
+/* line 16, ../sass/components/_lists.scss */
+ul.reset, ol.reset {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* line 22, ../sass/components/_lists.scss */
+ul.striped > li:nth-child(even), ol.striped > li:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+/* line 1, ../sass/components/_helpers.scss */
+.padded-vrt {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* line 6, ../sass/components/_helpers.scss */
+.center-table {
+  margin: 0px auto;
+  display: table;
+}
+
+/* line 11, ../sass/components/_helpers.scss */
+.content-block {
+  display: block;
+  overflow-y: hidden;
 }

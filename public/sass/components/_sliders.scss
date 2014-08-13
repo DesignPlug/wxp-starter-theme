@@ -1,0 +1,71 @@
+
+
+
+/*==========================================
+slider navigation styling
+============================================*/
+
+.sldr-nav > ul ,
+.flex-control-nav{
+    @include scut-list-inline;
+    padding: 5px 10px; 
+    margin: 0px auto;
+
+    li{
+            padding-left: 5px;
+
+            &:first-child{
+                padding: 0px;
+            }
+
+            a{
+                display: inline-block;   
+                background: #fff;
+                border-radius: 50%;
+                position: relative;
+                padding: 3px;
+                @include scut-size(26px 26px);
+                overflow: hidden;
+                
+                &:before{
+                    content: "";
+                    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, .5), inset 0px 0px 20px rgba(0, 0, 0, .25);                        
+                    border-radius: inherit;
+                    display: block;
+                   @include scut-size(20px);
+                }
+
+                &:hover{
+                    background: #fff;
+                    
+                    &:before{
+                        box-shadow: none;
+                        @include plug-linear-gradient($primary-color-dk, $primary-color-lt);
+                    }
+                }
+            }    
+    }
+
+    li.active{
+        a:before{
+            box-shadow: none;
+            @include plug-linear-gradient($primary-color-dk, $primary-color-lt);                
+        }
+    }
+    
+    li a.flex-active{
+        background: #fff;
+        
+        &:before{
+            box-shadow: none;
+            @include plug-linear-gradient($primary-color-dk, $primary-color-lt);                
+        }
+    }
+
+}
+
+.testimonial-sldr {
+    .flex-control-nav{
+        padding: 15px 20px;  
+    }
+}

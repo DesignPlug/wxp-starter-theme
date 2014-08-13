@@ -1,0 +1,1 @@
+<?php \WXP\WXP::render_view(view_var("wxp_global_view")); ?>

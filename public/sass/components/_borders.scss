@@ -1,0 +1,5 @@
+/* borders */
+
+.dash-border{
+    @include plug-dashed-border($primary-color-md, -10px);
+}

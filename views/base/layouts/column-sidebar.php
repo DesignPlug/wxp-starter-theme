@@ -1,4 +1,4 @@
 <div class="container">
-    <?php get_template_part('views/base/layouts/parts/main'); ?>
-    <?php get_template_part('views/base/layouts/parts/sidebar'); ?>
+    <?php get_template_part('views/base/layouts/parts/wrappers/wrapper'); ?>
+    <?php get_template_part('views/base/layouts/parts/sidebars/sidebar'); ?>
 </div>

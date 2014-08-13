@@ -1,0 +1,71 @@
+.thumb-group{
+    
+    .thumbnail{
+    
+        padding: 0px;
+        border-radius: 0px;
+        margin: 0px auto;
+        border: none;
+        position: relative;
+        @include transition(none);
+        
+        > .overlay{
+            @include scut-absolute(0 0 0 0);
+            opacity: 0; 
+            background: #fff;
+            z-index: 2;
+            display: block;
+            visibility: hidden;
+            @include transition(all 155ms ease-in-out);
+        }
+        
+        > .action{
+            @include scut-absolute(50% 0 n 0);
+            margin-top: -50px;
+            display: block;
+            z-index: 3;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(opacity 100ms ease-in-out, margin 100ms ease-in-out);
+            
+            > .inner{
+                display: table;
+                margin: 0px auto;
+                
+                .btn{
+                    margin-left: 8px;
+                }
+                 
+            }
+            
+        }
+        
+        > img{
+            @include scut-size(100% auto);
+            border-radius: inherit; 
+        }
+        
+    &:hover{    
+        
+        @include transition(none);         
+        
+        > .overlay{
+            visibility: visible;
+            opacity: .5;
+            @include transition(opacity 100ms ease-in-out); 
+            border: 1px solid $primary-color-dk;
+        }
+        
+        > .action{
+            opacity: 1;
+            visibility: visible;
+            margin-top: -20px; 
+            @include transition(opacity 150ms ease-in-out, margin 150ms ease-in-out);   
+        }
+    }    
+        
+    }
+    
+    
+    
+}

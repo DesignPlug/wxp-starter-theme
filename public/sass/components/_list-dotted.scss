@@ -1,0 +1,18 @@
+.list.list-dotted{
+    
+    li > a{
+        
+        display: block;
+        border-bottom: 1px dotted rgba(0, 0, 0, .4);
+        
+        &:hover{
+            padding-left: 15px;
+        }
+        
+    }
+    
+    li:last-child > a{
+        border-bottom: none;
+    }
+    
+}

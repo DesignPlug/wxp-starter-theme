@@ -1,0 +1,26 @@
+/********** LISTS *****************
+* ol and ul helpers and list styles
+***********************************/
+
+ul.list,
+ol.list{
+    @extend %scut-list-unstyled;
+    
+    li > a{
+        display: block;
+        padding: 10px;
+    }
+}
+
+
+ul.reset, ol.reset{
+    @include scut-list-unstyled;
+}
+
+ul.striped, ol.striped{
+    
+    > li:nth-child(even){
+        background-color: $ll-shlw-color-lt;
+    }
+    
+}

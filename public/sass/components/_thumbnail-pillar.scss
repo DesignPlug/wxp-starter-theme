@@ -1,0 +1,34 @@
+.thumbnail.thumbnail-pillar,
+.thumbnail.thumbnail-block{
+    
+    margin: 0px auto;
+    max-width: 350px;
+    overflow: hidden;
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.3);
+    border: none;
+    
+    .img.thumbnail-img{
+        width: 100%;
+        
+        img{
+            @include scut-size(100% auto);
+        }
+    }
+    
+    .thumbnail-caption{
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .thumbnail-heading{
+        margin-top: 5px;
+    }
+}
+
+.thumbnail-block{
+    max-width: auto;
+    text-align: left;
+}

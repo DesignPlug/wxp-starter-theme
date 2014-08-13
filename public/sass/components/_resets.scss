@@ -1,0 +1,25 @@
+/* reset */
+/* remove all margins on top level rows that would cause
+   horiontal scroll to appear */
+
+body{
+    height: 100% !important;
+}
+
+main{ 
+
+    margin: 0px;
+    
+    > .row{
+        margin: 0px;
+    }
+}
+
+main.col-sm-12{
+    padding: 0px;
+}
+
+
+.container{
+    position: relative;
+}

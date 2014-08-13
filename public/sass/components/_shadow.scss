@@ -1,0 +1,22 @@
+/* http://www.paulund.co.uk/creating-different-css3-box-shadows-effects */
+
+.shdw-6{
+    position:relative;
+    z-index: 1;
+}
+.shdw-6:before, .shdw-6:after{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+
+.shdw-inset-top{
+    box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.3); 
+}

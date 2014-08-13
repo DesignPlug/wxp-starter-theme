@@ -1,0 +1,673 @@
+/********** TYPOGRAPHY *****************
+* All styles related to paragraphs, headings
+* bloquotes and other type. 
+*******************************************/
+
+
+p{
+    font-size: 1.25em;
+    font-family: $type-font; 
+    margin: 20px 0px 25px;
+    color: #555;
+}
+
+p.lead{
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+a{
+    text-decoration: none;
+    color: $primary-color-dk;
+    
+    &:hover{
+        color: $primary-color-lt;
+        text-decoration: none;
+        @include transition(all 155ms ease-in-out);
+    }  
+}
+
+a.em-light{
+    color: darken($ll-shlw-color-dk, 10%);
+    
+    &:hover{
+        color: $ll-shlw-color-lt;
+    }
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a{
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  line-height: inherit; 
+}
+
+.em-color{
+    color: $primary-color-dk;
+}
+
+.em-upper{
+    text-transform: uppercase;
+}
+
+/*  default heading sizes */
+
+h1{
+    font-size: $h1-font-size;
+}
+
+h2{
+    font-size: $h2-font-size;
+}
+
+h3{
+    font-size: $h3-font-size;
+}
+
+h4{
+    font-size: $h4-font-size;
+}
+
+h5{
+    font-size: $h5-font-size;
+}
+
+h6{
+    font-size: $h6-font-size;
+}
+
+h1, 
+h2, 
+h3,
+h4,
+h5,
+h6{
+    font-family: $heading-default-font;
+    font-weight: bold;
+    position: relative;
+    z-index: 9;
+    color: $h-default-color;
+}
+
+h1.center, 
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center,
+p.center{
+    text-align: center;
+}
+
+/*  emphasis 
+   the folllowing em- prefixed styles represent any style
+   used to emphasize text 
+*/
+
+
+em{
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+.em-light{
+    color: $h-hl-color;
+}
+
+/*  .dashes used to pace dashes on either end of emphasized text */
+
+.em-dashes,
+em.dashes{
+    @include scut-side-lined($style: dotted, $color: inherit);
+}
+
+.em-dashes-double{
+    @include scut-side-lined($double: 0.3em, $style: dotted, $color: inherit, $v-adjust: 0.05em);
+}
+
+/* dash left and right */
+/*
+.em-ldash{
+    @include scut-bookends(0.25em, "\2014" "");    
+}
+
+.em-rdash{
+    @include scut-bookends(0.25em, "" "\2014");    
+}
+*/
+
+/*  . slim displays text using thinner  styled font */
+
+.em-slim,
+em.slim{
+    font-family: $slim-font;
+}
+
+/*  .slick  display text with special empasizing  font  */
+
+.em-slick,
+em.slick{
+    font-family: $slick-font; 
+}
+
+
+.em-handw{
+    font-family: $handw-font;
+}
+/*  .bold  style */
+
+.em-bold, 
+strong,
+em.bold{
+    font-weight: bold;
+}
+
+/*  emphasis sizes */
+
+/*  priority level 4*/
+
+.em-delta{
+    font-size: 1.05em ;
+}
+
+h1.em-delta{
+    font-size: $h1-font-size * 1.05;
+}
+
+h2.em-delta{
+    font-size: $h2-font-size * 1.05;
+}
+
+h3.em-delta{
+    font-size: $h3-font-size * 1.05;    
+}
+
+h4.em-delta{
+    font-size: $h4-font-size * 1.05;    
+}
+
+h5.em-delta{
+    font-size: $h5-font-size * 1.05;    
+}
+
+h6.em-delta{
+    font-size: $h6-font-size * 1.05;    
+}
+
+
+/*  priority level 3 */
+
+.em-gamma{
+    font-size: 1.1em;
+}
+
+h1.em-gamma{
+    font-size: $h1-font-size * 1.15;
+}
+
+h2.em-gamma{
+    font-size: $h2-font-size * 1.15;
+}
+
+h3.em-gamma{
+    font-size: $h3-font-size * 1.15;
+}
+
+h4.em-gamma{
+    font-size: $h4-font-size * 1.15;
+}
+
+h5.em-gamma{
+    font-size: $h5-font-size * 1.15;
+}
+
+h6.em-gamma{
+    font-size: $h6-font-size * 1.15;
+}
+
+
+/*  priority level 2 */
+
+.em-beta{
+    font-size: 1.35em;
+}
+
+h1.em-beta{
+    font-size: $h1-font-size * 1.35;
+}
+
+h2.em-beta{
+    font-size: $h2-font-size * 1.35;
+}
+
+h3.em-beta{
+    font-size: $h3-font-size * 1.35;
+}
+
+h4.em-beta{
+    font-size: $h4-font-size * 1.35;
+}
+
+h5.em-beta{
+    font-size: $h5-font-size * 1.35;
+}
+
+h6.em-beta{
+    font-size: $h6-font-size * 1.35;
+}
+
+/* priority level one */
+
+.em-alpha{
+    font-size: 1.8em;
+}
+
+h1.em-alpha{
+    font-size: $h1-font-size * 1.8;
+}
+
+h2.em-alpha{
+    font-size: $h2-font-size * 1.8;
+}
+
+h3.em-alpha{
+    font-size: $h3-font-size * 1.8;
+}
+
+h4.em-alpha{
+    font-size: $h4-font-size * 1.8;
+}
+
+h5.em-alpha{
+    font-size: $h5-font-size * 1.8;
+}
+
+h6.em-alpha{
+    font-size: $h6-font-size * 1.8;
+}
+
+
+.em-mega{
+    font-size: 2em;
+}
+
+/*  deemphasis */
+
+.dem-slim{
+    font-weight: normal;
+}
+
+/* dem sizes */
+
+h1.dem,
+h1 .dem{
+    font-size: 1em;
+}
+
+.dem-alpha{
+    font-size: .4em;
+}
+
+h1.dem-alpha{
+    font-size: $h1-font-size * .4;
+}
+
+h2.dem-alpha{
+    font-size: $h2-font-size * .4;
+}
+
+h3.dem-alpha{
+    font-size: $h3-font-size * .4;
+}
+
+h4.dem-alpha{
+    font-size: $h4-font-size * .4;
+}
+
+h5.dem-alpha{
+    font-size: $h5-font-size * .4;
+}
+
+h6.dem-alpha{
+    font-size: $h6-font-size * .4;
+}
+
+.dem-beta{
+    font-size: .55em;
+}
+
+h1.dem-beta{
+    font-size: $h1-font-size * .55;
+}
+
+h2.dem-beta{
+    font-size: $h2-font-size * .55;
+}
+
+h3.dem-beta{
+    font-size: $h3-font-size * .55;
+}
+
+h4.dem-beta{
+    font-size: $h4-font-size * .55;
+}
+
+h5.dem-beta{
+    font-size: $h5-font-size * .55;
+}
+
+h6.dem-beta{
+    font-size: $h6-font-size * .55;
+}
+
+.dem-gamma{
+    font-size: .7em;
+}
+
+h1.dem-gamma{
+    font-size: $h1-font-size * .7;
+}
+
+h2.dem-gamma{
+    font-size: $h2-font-size * .7;
+}
+
+h3.dem-gamma{
+    font-size: $h3-font-size * .7;
+}
+
+h4.dem-gamma{
+    font-size: $h4-font-size * .7;
+}
+
+h5.dem-gamma{
+    font-size: $h5-font-size * .7;
+}
+
+h6.dem-gamma{
+    font-size: $h6-font-size * .7;
+}
+
+/* 
+    for use with new lines in h tags -
+   instead of using <br> we chose this method of wrapping
+   the text line with <span class="line">Some heading text</span> 
+   to allow  specific line of a h tag to be maniulated .
+*/
+
+.line{
+    display: inline-block;
+    width: 100%;
+    padding: .15em 0px;
+}
+
+.line-flat{
+    @extend .line;
+    padding: 0px;
+}
+
+.sub-heading{
+        @extend .line;
+        line-height: 1.5em;
+        padding-top: .5em;
+}
+
+.sub-heading.lead{
+    padding-top: 1.5em;
+}
+
+
+@media (min-width: $screen-sm-min) { 
+
+    /*  priority level 4*/
+
+    .em-delta{
+        font-size: 1.3em;
+    }
+
+    h1.em-delta{
+        font-size: $h1-font-size * 1.3;
+    }
+
+    h2.em-delta{
+        font-size: $h2-font-size * 1.3;
+    }
+
+    h3.em-delta{
+        font-size: $h3-font-size * 1.3;    
+    }
+
+    h4.em-delta{
+        font-size: $h4-font-size * 1.3;    
+    }
+
+    h5.em-delta{
+        font-size: $h5-font-size * 1.3;    
+    }
+
+    h6.em-delta{
+        font-size: $h6-font-size * 1.3;    
+    }
+
+
+    /*  priority level 3 */
+
+    .em-gamma{
+        font-size: 1.75em;
+    }
+
+    h1.em-gamma{
+        font-size: $h1-font-size * 1.5;
+    }
+
+    h2.em-gamma{
+        font-size: $h2-font-size * 1.5;
+    }
+
+    h3.em-gamma{
+        font-size: $h3-font-size * 1.5;
+    }
+
+    h4.em-gamma{
+        font-size: $h4-font-size * 1.5;
+    }
+
+    h5.em-gamma{
+        font-size: $h5-font-size * 1.5;
+    }
+
+    h6.em-gamma{
+        font-size: $h6-font-size * 1.5;
+    }
+
+
+    /*  priority level 2 */
+
+    .em-beta{
+        font-size: 2em;
+    }
+
+    h1.em-beta{
+        font-size: $h1-font-size * 2;
+    }
+
+    h2.em-beta{
+        font-size: $h2-font-size * 2;
+    }
+
+    h3.em-beta{
+        font-size: $h3-font-size * 2;
+    }
+
+    h4.em-beta{
+        font-size: $h4-font-size * 2;
+    }
+
+    h5.em-beta{
+        font-size: $h5-font-size * 2;
+    }
+
+    h6.em-beta{
+        font-size: $h6-font-size * 2;
+    }
+
+    /* priority level one */
+
+    .em-alpha{
+        font-size: 2.5em;
+    }
+
+    h1.em-alpha{
+        font-size: $h1-font-size * 2.5;
+    }
+
+    h2.em-alpha{
+        font-size: $h2-font-size * 2.5;
+    }
+
+    h3.em-alpha{
+        font-size: $h3-font-size * 2.5;
+    }
+
+    h4.em-alpha{
+        font-size: $h4-font-size * 2.5;
+    }
+
+    h5.em-alpha{
+        font-size: $h5-font-size * 2.5;
+    }
+
+    h6.em-alpha{
+        font-size: $h6-font-size * 2.5;
+    }
+
+
+    .em-mega{
+        font-size: 3em;
+    }
+
+    /*  deemphasis */
+
+    .dem-slim{
+        font-weight: normal;
+    }
+
+    /* dem sizes */
+
+    h1.dem,
+    h1 .dem{
+        font-size: 1em;
+    }
+
+    .dem-alpha{
+        font-size: .5em;
+    }
+
+    h1.dem-alpha{
+        font-size: $h1-font-size * .5;
+    }
+
+    h2.dem-alpha{
+        font-size: $h2-font-size * .5;
+    }
+
+    h3.dem-alpha{
+        font-size: $h3-font-size * .5;
+    }
+
+    h4.dem-alpha{
+        font-size: $h4-font-size * .5;
+    }
+
+    h5.dem-alpha{
+        font-size: $h5-font-size * .5;
+    }
+
+    h6.dem-alpha{
+        font-size: $h6-font-size * .5;
+    }
+
+    .dem-beta{
+        font-size: .8em;
+    }
+
+    h1.dem-beta{
+        font-size: $h1-font-size * .8;
+    }
+
+    h2.dem-beta{
+        font-size: $h2-font-size * .8;
+    }
+
+    h3.dem-beta{
+        font-size: $h3-font-size * .8;
+    }
+
+    h4.dem-beta{
+        font-size: $h4-font-size * .8;
+    }
+
+    h5.dem-beta{
+        font-size: $h5-font-size * .8;
+    }
+
+    h6.dem-beta{
+        font-size: $h6-font-size * .8;
+    }
+
+    .dem-gamma{
+        font-size: .9em;
+    }
+
+    h1.dem-gamma{
+        font-size: $h1-font-size * .9;
+    }
+
+    h2.dem-gamma{
+        font-size: $h2-font-size * .9;
+    }
+
+    h3.dem-gamma{
+        font-size: $h3-font-size * .9;
+    }
+
+    h4.dem-gamma{
+        font-size: $h4-font-size * .9;
+    }
+
+    h5.dem-gamma{
+        font-size: $h5-font-size * .9;
+    }
+
+    h6.dem-gamma{
+        font-size: $h6-font-size * .9;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) { 
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) { 
+
+    
+    
+    
+}
+
+
+
+
+

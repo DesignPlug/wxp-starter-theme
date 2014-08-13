@@ -1,0 +1,109 @@
+.feature{
+    
+    padding: 20px 10px;
+    overflow: hidden;
+    
+    > .feature-icon{
+        
+        > [class^="flaticon-"]:before, 
+        > [class*=" flaticon-"]:before, 
+        > [class^="flaticon-"]:after, 
+        > [class*=" flaticon-"]:after,
+        > i.fa{
+            font-size: 3em;
+            margin: 0px auto;
+        }
+        
+        > i.fa{
+            margin-top: 12px;
+        }
+    }
+    
+    > .feature-icon,
+    > .feature-content{
+        display: block;
+        text-align: center;
+    }
+    
+    &.feature-alpha,
+    &.feature-beta,
+    &.feature-gamma{
+        
+        @include transition(all 240ms ease-in-out);
+        
+        > .feature-icon{
+            border-radius: 50%;
+            border: 1px solid $primary-color-dk; 
+            color: $primary-color-dk;
+            background-color: lighten($ll-shlw-color-lt, 15%);
+            margin: 0px auto;
+            @include scut-size(100px);
+            position: relative;
+            @include transition(all 240ms ease-in-out);
+            
+            > [class^="flaticon-"]:before, 
+            > [class*=" flaticon-"]:before, 
+            > [class^="flaticon-"]:after, 
+            > [class*=" flaticon-"]:after,
+            > i.fa{
+                @include scut-absolute(50% n n 50%);
+                margin-left: -20px;
+                margin-top: -30px;
+            }
+            
+        }
+        
+        &:hover{
+            
+            background-color: lighten($ll-shlw-color-lt, 15%);
+            box-shadow: 0 2px 2px rgba(0,0,0,.3);
+            border-radius: 5px;
+            
+            > .feature-icon{
+                background-color: $primary-color-dk;
+                color: lighten($ll-shlw-color-lt, 15%);
+                border: 5px solid lighten($ll-shlw-color-lt, 15%); 
+                position: relative;
+                
+                &:after{
+                    content: "";
+                    @include scut-absolute(-5px -5px -5px -5px);
+                    border-radius: 50%;
+                    border: 1px solid $primary-color-dk; 
+                }
+            }
+            
+            h3{
+                color: $primary-color-dk;
+            }
+            
+        }
+        
+    }
+}
+
+
+.feature.feature-alpha{
+    
+}
+
+
+@media (min-width: $screen-sm-min) { 
+
+    .feature.feature-block{
+        padding: 20px 0px 20px 70px;
+        position: relative;
+        
+        > .feature-icon{
+            @include scut-absolute(25px n n 17px);
+        }
+        
+        
+        
+        > .feature-content,
+        > .feature-icon{
+            text-align: left;
+        }
+        
+    }
+}

@@ -1,0 +1,17 @@
+.parallax-background{
+    @include scut-absolute(-30% -30% -30% -30%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.parallax-background-vrt{
+    @extend .parallax-background;
+    left: 0px;
+    right: 0px;
+}
+
+.parallax-slider{
+    position: relative;
+    overflow: hidden;
+}

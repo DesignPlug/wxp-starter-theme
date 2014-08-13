@@ -1,0 +1,16 @@
+ul.tabable,
+ol.tabable{
+    
+    @include scut-list-unstyled;
+    
+    > li.tab{
+        
+        display: none;
+    
+        &.active{
+            display: block;
+        }
+        
+    }
+    
+}

@@ -1,0 +1,43 @@
+.icon-prefix{
+    
+    @include scut-padding(15px n 10px 40px);
+    position: relative;
+    margin-left: -27px;
+    @include transition (all 155ms ease-in-out);
+    
+    .icon{
+        @include transition (all 155ms ease-in-out);
+        @include scut-absolute(18px n n 15px);
+    } 
+}
+
+.icon-prefix.rotate-hvr{
+    &:hover{
+        
+        @include transition (all 155ms ease-in-out);
+        
+        .icon{
+            @include transition (all 155ms ease-in-out);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    }
+}
+
+
+i[class*="flaticon-"]:after,
+i[class^="flaticon-"]:before{
+    font-size: inherit;
+    margin-left: 0px;
+    line-height: 1em;
+    font-weight: normal;
+}
+
+@media (min-width: $screen-md-min) { 
+    .icon-prefix{
+        margin-left: 0px;
+    }
+}

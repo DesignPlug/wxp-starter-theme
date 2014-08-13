@@ -1,0 +1,36 @@
+
+.mfp-wrap{
+    cursor: default; 
+}
+
+.modal[class*="w-bg-overlay"],
+.mfp-wrap[class*="w-bg-overlay"]{
+    position: fixed;
+}
+
+.modal-backdrop{
+    background: transparent;
+}
+
+.modal-dialog{
+    margin-top: 50px;
+}
+
+.modal-content{
+    border-radius: 0px;
+}
+
+
+/*
+    gloss hover
+*/
+
+
+@media all and (min-width: 700px){
+    
+    
+    .modal-dialog{
+        width: 700px;
+    }
+    
+}

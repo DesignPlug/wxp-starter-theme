@@ -1,0 +1,123 @@
+@import "variables";
+
+@mixin plug-linear-gradient($from, $to, $ie8: false) {
+    background: $from; /* Old browsers */
+    background: -moz-linear-gradient(top,  $from 0%, $to 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $from), color-stop(100%, $to)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $from 0%, $to 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $from 0%, $to 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $from 0%, $to 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $from 0%, $to 100%); /* W3C */
+    @if $ie8 {
+        @include plug-linear-gradient-ie8($from, $to);
+    }
+}
+
+@mixin plug-linear-gradient-ie8($from, $to){
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=0 ); /* IE6-9 */    
+}
+
+
+@mixin plug-gradient-ltr($from, $to){
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: $from;
+    background: -moz-linear-gradient(left,  $from 0%, $to 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,$from), color-stop(100%,$to)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  $from 0%,$to 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  $from 0%,$to 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  $from 0%,$to 100%); /* IE10+ */
+    background: linear-gradient(to right,  $from 0%,$to 100%); /* W3C */
+}
+
+@mixin plug-dashed-border($color, $distance: -6px){
+    margin: 5px auto;
+    z-index: 1;
+    position: relative;
+    
+    &:before{
+      content: "";
+      position: absolute;
+      top: #{$distance};
+      left: #{$distance};
+      right: #{$distance};
+      bottom: #{$distance};
+      z-index: -1;
+      
+      background: -webkit-linear-gradient(left, $color 70%, transparent 70%),
+                  -webkit-linear-gradient(left, $color 70%, transparent 70%),
+                  -webkit-linear-gradient(top, $color 70%, transparent 70%),
+                  -webkit-linear-gradient(top, $color 70%, transparent 70%);
+                  
+      background: -moz-linear-gradient(left, $color 70%, transparent 70%),
+                  -moz-linear-gradient(left, $color 70%, transparent 70%),
+                  -moz-linear-gradient(top, $color 70%, transparent 70%),
+                  -moz-linear-gradient(top, $color 70%, transparent 70%); 
+
+      background: -o-linear-gradient(left, $color 70%, transparent 70%),
+                  -o-linear-gradient(left, $color 70%, transparent 70%),
+                  -o-linear-gradient(top, $color 70%, transparent 70%),
+                  -o-linear-gradient(top, $color 70%, transparent 70%);
+                  
+      background: -ms-linear-gradient(left, $color 70%, transparent 70%),
+                  -ms-linear-gradient(left, $color 70%, transparent 70%),
+                  -ms-linear-gradient(top, $color 70%, transparent 70%),
+                  -ms-linear-gradient(top, $color 70%, transparent 70%);       
+                  
+      background: linear-gradient(to right, $color 70%, transparent 70%),
+                  linear-gradient(to right, $color 70%, transparent 70%),
+                  linear-gradient(to bottom, $color 70%, transparent 70%),
+                  linear-gradient(to bottom, $color 70%, transparent 70%); 
+                  
+      background-size: 30px 5px,
+                       30px 5px,
+                       5px 30px,
+                       5px 30px;
+      background-repeat: repeat-x,
+                         repeat-x,
+                         repeat-y,
+                         repeat-y;
+      background-position: 0 0,
+                           left bottom,
+                           0 0,
+                           right 0;
+      border-radius: inherit;
+    }
+}
+
+@mixin bg-cover($img, $position: 0px){
+    background-image: url($img);
+    background-position: $position;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* buttons */
+
+@mixin btn-outline-variant($outline){
+  outline: 3px solid $outline;    
+  color: $outline;
+  
+  &:hover,
+  &:active{
+    color: darken($outline, 10%);
+    outline: 3px solid darken($outline, 10%);
+  } 
+}
+
+@mixin btn3d-variant($side-color){
+    box-shadow: 0px 0px 3px 20px rgba(255, 255, 255, 0.1) inset, 
+                0 2px 0 0 darken($side-color, 5%), 
+                0 2px 0 1px rgba(0, 0, 0, 0.4), 
+                0 4px 4px 1px rgba(0, 0, 0, 0.5);
+    border: none;
+    &:hover{
+        background: lighten($side-color, 3%);
+    }
+    
+    &:active{
+        background: darken($side-color, 3%);
+        @include transition(all 70ms ease-in-out);
+        top: 3px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+    }
+}

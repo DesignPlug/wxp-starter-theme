@@ -4,7 +4,14 @@ use WXP\WXP;
 
 require "lib\wxp-dom-router.php";
 
-\WXP\Bootstrap::theme("lib\WXP", "lib\WXP\Theme");
+add_action("WXP.register_base_theme", function($bootstrap){
+    $class_dir = get_template_directory() ."/lib/WXP/";
+    $bootstrap->register_theme("wxp-starter-theme", $class_dir, "{$class_dir}/Theme/");
+});
+
+/************************************************
+ * WP Utilities/Helpers
+ ************************************************/
 
 require_once locate_template('/lib/cleanup.php');         // Cleanup
 require_once locate_template('/lib/relative-urls.php');   // Root relative URLs

@@ -1,0 +1,59 @@
+
+blockquote{
+    width: 100%;
+    background: transparent;  
+    color: $h-default-color;
+    font-weight: normal;
+    padding: 15px 45px 15px 60px; 
+    border-left: none;
+    margin-left: 0px;
+    margin-bottom: 25px; 
+    position: relative; 
+    
+    
+    > p{
+        margin: 0px;
+        line-height: 1.6em;
+        font-family: $em-type;
+        font-size: 1.5em;
+    }
+    
+    &:before{
+        display: block;
+        content: "\201C";
+        font-family: $em-type;
+        font-size: 80px;
+        position: absolute;
+        left: 5px;
+        top: -10px;
+        color: inherit;
+    }
+    
+    cite{
+        float: right;
+        margin-right: 30px;
+        font-size: 1em;
+        color: #999;
+        position: relative;
+        display: inline-block;
+        
+        &:before,
+        &:after{
+            content: "\2014 \2009";
+            display: inline-block;
+            position: absolute;
+            right: 100%;
+            top: 0;
+            height: 100%;
+        }
+
+        &:after{
+            right: auto;
+            left: 100%;
+            margin-left: 5px;
+            display: none;
+        }
+    }    
+    
+
+}

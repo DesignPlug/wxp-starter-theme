@@ -1,0 +1,67 @@
+/* default widget css */
+
+.widget{
+    
+    margin-bottom: 40px;
+    
+    
+    .widget-inner{
+
+        ul#recentcomments{
+
+            li{
+                padding: 10px;
+            }
+
+        }
+
+
+        > ul:not(#recentcomments){
+            @extend %scut-list-unstyled;
+
+            li{
+                a{
+                    display: block;
+                    padding: 13px 10px; 
+                    border-bottom: 1px dotted rgba(3, 3, 3, .3);
+                    color: #444;
+                }
+
+
+                &:hover{
+                    a:first-child{
+                        background-color: rgba(3, 3, 3, .05);
+                        color: $primary-color-dk;
+                        text-indent: 5px;
+                    }
+                }
+
+            }
+        }  
+    }
+}
+
+footer.footer{
+    
+    .widget{
+        
+        .widget-inner{
+
+            h3{
+                color: #ccc;
+            }
+
+            > ul:not(#recentcomments){
+
+                margin: 0px auto;
+
+                li > a{
+                    color: #eee;
+                    border-bottom: 1px dotted rgba(255, 255, 255, .1);
+                }
+            }
+        }
+    }
+    
+    
+}

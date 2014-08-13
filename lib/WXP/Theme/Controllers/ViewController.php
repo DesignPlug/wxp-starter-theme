@@ -1,8 +1,8 @@
 <?php namespace Theme\Controllers;
 
-use \WXP\Controller;
+use \WXP\WXP;
 
-class ViewController extends Controller{
+class ViewController extends BaseController{
     
     function common(){
         
@@ -17,11 +17,13 @@ class ViewController extends Controller{
                    ->add('main_sidebar', 'sidebar-primary')
                    ->add('main_class', 'col-sm-8')
                    ->add('read_more_text', 'MORE')
-                   ->add('content_template', $this->View->get("base_template"))
+                   ->add('wxp_content_template', $this->View->get_render_path())
                    ->add('allow_plugin_template_override', true)
-                   ->add('orig_content_template', view_var("content_template"))
-                   ->add('copyright_footer', $this->Options->get("wxp_copyright"))
-                   ->add('base_template', locate_template("base.php"));
+                   ->add('wxp_orig_content_template', view_var("wxp_content_template"))
+                   ->add('copyright_footer', $this->Options->get("wxp_copyright"));
+        
+        $this->View->set_render_path("#base");        
+        
         /**
          * Load brand name or logo
          **/
@@ -32,13 +34,13 @@ class ViewController extends Controller{
         /*
          * set the navigation vars
          */
-        $this->set_nav();
+        $this->Elements->set_nav();
         
         /*
          * add social links to the view
          */
         
-        $this->View->add("social_links", $this->get_social_links());
+        $this->View->add("social_links", $this->Elements->get_social_links());
         
         /*
          * We'll allow the plugin generated template directory override any 
@@ -79,7 +81,7 @@ class ViewController extends Controller{
                    ->add('page_header_tags', array())
                    ->add('post_loop_content_read', 'excerpt')
                    ->add('post_loop_show_thumb', true)
-                   ->add("content_template", locate_template("views/content/content-loop.php"));
+                   ->add("wxp_content_template", locate_template("views/content/content-loop.php"));
         
         /*
          * if posts exceed the amount of that allotted per page,
@@ -97,7 +99,7 @@ class ViewController extends Controller{
          */
         
         if(!have_posts()){
-            $this->View->add("content_template", 
+            $this->View->add("wxp_content_template", 
                              locate_template("views/content/error/error-no-posts.php"));
         }  
         
@@ -126,7 +128,7 @@ class ViewController extends Controller{
             //use content from page for posts, to fill in header values
             
             $post = get_post(get_option('page_for_posts', true));
-            $this->set_layout_heading($post);
+            $this->Elements->set_layout_heading($post);
             
         } else {
             
@@ -228,7 +230,7 @@ class ViewController extends Controller{
         $this->archive();
         
         global $post;
-        $this->set_layout_heading($post);
+        $this->Elements->set_layout_heading($post);
         $this->View->add("post_loop_content_read", "full");
     }
     
@@ -246,7 +248,7 @@ class ViewController extends Controller{
         
         if($error404page = $this->Options->get("wxp_error404_template")){
             
-            $this->set_layout_heading(get_post($error404page));
+            $this->Elements->set_layout_heading(get_post($error404page));
             
         } else {
         
@@ -256,179 +258,9 @@ class ViewController extends Controller{
             
         }
         
-        $this->View->add("content_template", locate_template("views/content/error/error-404.php"));
+        $this->View->add("wxp_content_template", locate_template("views/content/error/error-404.php"));
     }
-    
-    function plugin_template_override(){
-        
-        /*
-         * if the content template is included from a directory that
-         * is not the theme directory, its more than likely that a plugin defined it
-         * and we don't want our theme to override the plugin, so we'll set the
-         * content_template back to the plugin's
-         * 
-         */
-        
-        if(strpos($this->View->get("orig_content_template"), \WXP\WXP::DS(get_template_directory())) === false
-           && view_var("allow_plugin_template_override") === true){
-            
-            $this->View->add("content_template", view_var("orig_content_template"));
-            
-            //let plugin template be single column, just incase
-            //it includes its own sidebar (like Woocommerce)
-            $this->set_layout("one");
-        }
-    }
-    
-    function set_layout($layout = 'sidebar'){
-        
-        switch($layout){
-            
-            case "one":
-                
-                $this->View->add("main_class", "col-sm-12")
-                           ->add("layout", "one");
-                
-            break;
-            default:
-                
-                $this->View->add("main_class", "col-sm-8")
-                           ->add("layout", 'sidebar');
-                
-            break;
-            
-        }
-        
-    }
-    
-    function set_nav(){
-        if($this->Options->get("wxp_rnav_support")){
-            
-            $this->View->add('use_rnav', true);
-            
-            /*
-             * If responsive nav is set use that navigation, else
-             * default to primary_navigation
-             */
-            
-            $nav_location = has_nav_menu("responsive_navigation") ? "responsive_nagivation" : "primary_navigation";
-            $this->View->add('rnav', $nav_location);
-            
-            /*
-             * get the responsive navigation position, 
-             * default to right, if no position given
-             */
-                       
-            $this->View->add("rnav_position", $this->Options->get("wxp_rnav_position", "right"));
-            
-            /*
-             * pass responsive classes to the default nav menu so that 
-             * it disappears when responsive nav is visible
-             */
-            
-            $this->View->add("primary_nav_class", " visible-lg visible-md ");
-            
-            //pass resp nav position to inline js file
 
-            add_action("wp_enqueue_scripts", function(){
-                wp_localize_script("common_js", 
-                                   "wxp_local", 
-                                   array("rnav_position" => view_var("rnav_position"),
-                                         "rnav_support"  => "1"));                
-            });
-
-            //include responsive nav near the nav menu
-
-            add_filter("get_template_part_views/base/layouts/parts/navtop", function($nav){
-               get_template_part("views/menus/rnav"); 
-               return $nav;
-            });        
-            
-        }
-    }
-    
-    function set_layout_heading($post){
-        
-        switch($header_style = get_post_meta($post->ID, "wxp_page_header_style", true)){
-            
-            case "slider":
-                
-                $this->View->add("header_slider", get_post_meta($post->ID, "wxp_page_slider_shortcode", true));
-                
-                /*
-                * add a filter to parse the shortcode and return any generated 
-                * html to the view 
-                */
-                
-                add_filter("WXP.var.header_slider", function($slider){
-                    
-                    ob_start();
-                    do_shortcode($slider);
-                    $slider = ob_get_contents();
-                    ob_end_clean();
-                    return $slider;
-                });
-                
-            break;
-            case "jumbotron":
-               
-                $this->View->add("page_header_desc", get_post_meta($post->ID, "wxp_page_subheading", true));
-                
-            break;
-            default:
-              
-                $this->View->add("page_header_subtitle", get_post_meta($post->ID, "wxp_page_subheading", true))
-                           ->add("page_header_tags", wp_get_post_tags($post->ID) ?: array());
-                
-            break;
-        
-        }
-        
-        $this->View->add("layout_header", $header_style ?: "post")
-                   ->add("page_header_title", $post->post_title);
-
-    }
-    
-    function get_social_links(){
-        $networks = array('facebook', 
-                          'twitter', 
-                          'googleplus' => 'Google +',
-                          'instagram',
-                          'pinterest',
-                          'vimeo',
-                          'dribbble');
-        
-        $icons    = array('vimeo'      => 'vimeo-square',
-                          'googleplus' => 'google-plus');
-        
-        $social_links = array();
-        
-        foreach($networks as $k => $v){
-            
-            //if the key is numeric, then treat the value
-            // like the network's name, else we'll just use 
-            //the key
-            
-            $social_id = $k;
-            $social_name = $v;
-            
-            if(is_numeric($k)){
-                $social_id   = $v;
-                $social_name = ucfirst($v);
-            }
-            
-            
-            //if network is set add it to social link array
-            if($link = $this->Options->get("wxp_social_" .$social_id)){
-                $social_links[$social_id] = new \stdClass();
-                $social_links[$social_id]->name = $social_name;
-                $social_links[$social_id]->link = $link; 
-                $social_links[$social_id]->id   = @$icons[$social_id] ?: $social_id; 
-            }
-        }
-        
-        return $social_links;
-    }
     
 }
 

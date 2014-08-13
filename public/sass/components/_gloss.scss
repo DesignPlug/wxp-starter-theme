@@ -1,0 +1,25 @@
+/* diagonal gloss background element */
+
+*[class*="diag-gloss"]{
+    position: relative;
+    overflow: hidden;
+    
+    > *{
+        z-index: 3;
+    }
+}
+
+*[class*="diag-gloss"]:before,
+.before-diag-gloss /* IE8 Fallback */{
+    content: "";
+    display: block;
+    width: 100%;
+    @include scut-absolute(-52% 0 52% 0);
+    @include plug-gradient-ltr(rgba(255, 255, 255, 0), rgba(255, 255, 255, .1));
+   // @include transform( rotate(-24deg));
+    z-index: 1;
+}
+
+.diag-gloss-bright:before{ 
+    @include plug-gradient-ltr(rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));    
+}
