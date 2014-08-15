@@ -84,6 +84,9 @@ class WXP {
             
             $ns = $path_alias ?: $path;
             $View = apply_filters("WXP.get_view", new View($ns, $located_path));
+            
+            //make new View observable
+            $View = new Observer("View", $View);
         
             //apply all filters
             if(isset($path_alias)){
@@ -118,6 +121,21 @@ class WXP {
         
         //render View
         $View->render();
+    }
+    
+    /**
+     * forces shortcode to 'return' string instead of
+     * echoing
+     * 
+     * @param string $shortcode
+     * @return string shortcode output
+     */
+    
+    public static function do_shortcode($shortcode){
+        ob_start();
+        $returned_content = do_shortcode($shortcode);
+        $content = trim(ob_get_clean()) ?: $returned_content;
+        return $content;
     }
     
     public static function DS($dir){

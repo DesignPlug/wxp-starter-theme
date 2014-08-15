@@ -16,6 +16,7 @@ class ViewController extends BaseController{
                    ->add('layout', 'sidebar')
                    ->add('main_sidebar', 'sidebar-primary')
                    ->add('main_class', 'col-sm-8')
+                   ->add('layout_footer', 'default')
                    ->add('read_more_text', 'MORE')
                    ->add('wxp_content_template', $this->View->get_render_path())
                    ->add('allow_plugin_template_override', true)
@@ -34,13 +35,13 @@ class ViewController extends BaseController{
         /*
          * set the navigation vars
          */
-        $this->Elements->set_nav();
+        $this->Template->set_nav();
         
         /*
          * add social links to the view
          */
         
-        $this->View->add("social_links", $this->Elements->get_social_links());
+        $this->View->add("social_links", $this->Template->get_social_links());
         
         /*
          * We'll allow the plugin generated template directory override any 
@@ -128,7 +129,7 @@ class ViewController extends BaseController{
             //use content from page for posts, to fill in header values
             
             $post = get_post(get_option('page_for_posts', true));
-            $this->Elements->set_layout_heading($post);
+            $this->Template->set_layout_heading($post);
             
         } else {
             
@@ -230,7 +231,7 @@ class ViewController extends BaseController{
         $this->archive();
         
         global $post;
-        $this->Elements->set_layout_heading($post);
+        $this->Template->set_layout_heading($post);
         $this->View->add("post_loop_content_read", "full");
     }
     
@@ -248,9 +249,9 @@ class ViewController extends BaseController{
         
         if($error404page = $this->Options->get("wxp_error404_template")){
             
-            $this->Elements->set_layout_heading(get_post($error404page));
+            $this->Template->set_layout_heading(get_post($error404page));
             
-        } else {
+    } else {
         
             $this->View->add("layout_header", "jumbotron")
                        ->add("page_header_title", "Ouch...")

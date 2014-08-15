@@ -44,6 +44,10 @@ class View {
         }
     }
     
+    function get_namespace(){
+        return $this->namespace;
+    }
+    
     function __get($name) {
         return $this->get($name);
     }

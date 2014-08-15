@@ -45,3 +45,10 @@ add_filter( 'ot_theme_mode', '__return_true' );
 require( trailingslashit( get_template_directory() ) . 'lib/option-tree/ot-loader.php' );
 
 
+add_filter("WXP.DomRouter.on.allow", function($orig, $param){
+    return $orig;
+}, 10, 2);
+
+add_filter("WXP.DomRouter.on.disallow.return", function($orig, $obj){
+    return $obj;
+}, 10, 2);

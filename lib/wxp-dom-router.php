@@ -25,6 +25,7 @@ require  WXP::DS('WXP/src/WXP/Options.php');
 require  WXP::DS('WXP/src/WXP/Controller.php');
 require  WXP::DS('WXP/src/WXP/View.php');
 require  WXP::DS('WXP/src/WXP/helpers.php');
+require  WXP::DS('WXP/src/WXP/Observer.php');
 
 
 /*****************************************************

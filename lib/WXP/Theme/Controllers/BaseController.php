@@ -2,6 +2,7 @@
 
 use WXP\WXP;
 use WXP\Controller;
+use WXP\Observer;
 use Theme\Controllers\Elements;
 
 
@@ -9,7 +10,9 @@ class BaseController extends Controller{
     
     function __construct() {
         parent::__construct();
-        $this->add_object("Elements", apply_filters("WXP.get_elements_controller", new ElementsController));
+        $templateCtrl = apply_filters("WXP.get_template_controller", new ElementsController);
+        $templateCtrl = new Observer("Template", $templateCtrl);
+        $this->add_object("Template", $templateCtrl);
         
         //save original content template
         $this->View->add("wxp_orig_content_template", $this->View->get_render_path());

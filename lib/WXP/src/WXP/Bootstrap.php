@@ -7,69 +7,7 @@ use WXP\DomRouter;
 
 class Bootstrap {
     
-    protected $themes = array();
-    
-    /*************************************************
-     * Register theme dir so that autoloader
-     * will check the current theme directory for
-     * controllers etc... 
-     *************************************************/
-    
-    static function theme($path_to_classes = "", $config_path = ""){
-        
-        $path     = $c_path = WXP::DS(get_template_directory());
-        $path    .= $path_to_classes ? WXP::DS('\\' .$path_to_classes) : "";
-        $c_path  .= $config_path ? WXP::DS('\\' .$config_path) : "";
-        
-        
-        spl_autoload_register(array(new Autoloader($path), "load"));
-        
-        static::register_paths($c_path); 
-    }
-    
-    static function register_paths($path){
-        
-        /******************************************
-         * Require init & constants files if exists
-         ******************************************/
-        
-        add_action('after_setup_theme', function() use($path){
-
-            if(file_exists(WXP::DS($path ."\config\constants.php"))){
-                require WXP::DS($path ."\config\constants.php");
-            }
-            
-            if(file_exists(WXP::DS($path ."\config\init.php"))){
-                require WXP::DS($path ."\config\init.php");
-            }
-            
-            //load scripts if exist
-
-            if(file_exists(WXP::DS($path ."\config\scripts.php"))){
-                add_action("wp_enqueue_scripts", function() use ($path){
-                   require WXP::DS($path ."\config\scripts.php"); 
-                });
-            }
-            
-            //load dom routes if exist
-            
-            if(file_exists(WXP::DS($path ."\config\dom-routes.php"))){
-                require WXP::DS($path ."\config\dom-routes.php");
-            }
-            
-            //load options file if exists
-            
-            if(file_exists(WXP::DS($path ."\config\options.php"))){
-                require WXP::DS($path ."\config\options.php");
-            }
-            
-            //load meta bozes file if exists
-            
-            if(file_exists(WXP::DS($path ."\config\meta-boxes.php"))){
-                require WXP::DS($path ."\config\meta-boxes.php");
-            }
-        });
-    }
+    protected $themes = array();  
     
     function __construct() {
         add_action("after_setup_theme", array(&$this, "init"));
@@ -88,10 +26,15 @@ class Bootstrap {
         $Path = apply_filters("WXP.get_paths_object", new Path);
         do_action("WXP.set_template_paths", $Path);
                 
+        //template paths can now be accessed via WXP::get_template_paths
         WXP::setPaths($Path);
         
         //allow override of global View object
         $View = apply_filters("WXP.get_global_view", View::getInstance());
+        
+        //make View observable
+        $View = new Observer("View", $View);
+        
         //set global View object variable for easy access
         $View->add("wxp_global_view", $View);
         
@@ -100,6 +43,9 @@ class Bootstrap {
         
         //do dom routing action
         $router = apply_filters("WXP.get_dom_router", DomRouter::getInstance());
+        
+        //make router observable;
+        $router = new Observer("DomRouter", $router);
         do_action("WXP.set_dom_routes", $router);
         
         $router->route();
