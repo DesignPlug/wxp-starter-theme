@@ -124,6 +124,32 @@ class WXP {
     }
     
     /**
+     * calls callable callbacks, and instantiates and calls 
+     * Class#Method strings. 
+     * 
+     * @param mixed callable | string $target
+     * @param bool $observe if $observe is true, and the callback is an object, it will be wrapped in the WXP\Observer object
+     * @return void
+     * 
+     */
+    
+    public static function call_target($target, $param = array(), $observe = false){
+
+        if(!is_callable($target)){ //it is call to Object#method
+            $target = explode('#', trim($target));
+            $target[0] = new $target[0]; //instantiate class
+        }
+        
+        if(is_array($target) && $observe != false){
+            //namespace will be separated by . instead of slashes in handle
+            $class_name = str_replace("\\", ".", get_class($target[0]));
+            $target[0] = new Observer ($class_name, $target[0]);
+        }
+        
+        return call_user_func_array($target, $param);
+    }
+    
+    /**
      * forces shortcode to 'return' string instead of
      * echoing
      * 
@@ -139,7 +165,8 @@ class WXP {
     }
     
     public static function DS($dir){
-        return trim(str_replace(array("/","\\"), DIRECTORY_SEPARATOR, $dir));
+        $ds = DIRECTORY_SEPARATOR;
+        return trim(str_replace(array("/","\\"), $ds, $dir));
     }
     
 }

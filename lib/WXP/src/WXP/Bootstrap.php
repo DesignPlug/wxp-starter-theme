@@ -16,7 +16,11 @@ class Bootstrap {
     function init(){
         do_action("WXP.register_base_theme", $this);
         do_action("WXP.register_theme", $this);
-        $this->include_config_files();
+        
+        //todo. register vendor 
+        //      register plugin
+        
+        $this->include_config_files($this->themes);
         add_action("template_include", array(&$this, "run"));
     }
     
@@ -65,7 +69,7 @@ class Bootstrap {
               ->add("config", $config_path, false);
         
         //set autoload paths
-        spl_autoload_register(array(new Autoloader($tPath->to("classes")), "load"));
+        Autoloader::register($tPath->to("classes"));
         
         //set theme path
         $this->themes[$theme_handle] = $tPath;
@@ -73,9 +77,16 @@ class Bootstrap {
         return $this;
     }
     
-    function include_config_files(){
+    /**
+     * todo 
+     * 
+     * function register_vendor
+     * function register_plugin
+     */
+    
+    function include_config_files($themes){
 
-        foreach($this->themes as $theme => $path){
+        foreach($themes as $theme => $path){
 
             $config_path = $path->to('config') .DIRECTORY_SEPARATOR;
             

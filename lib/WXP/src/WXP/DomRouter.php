@@ -1,5 +1,6 @@
 <?php namespace WXP;
 
+use WXP\WXP;
 
 class DomRouter {
     
@@ -32,7 +33,7 @@ class DomRouter {
             foreach($this->routes as $route_hook => $actions){
                 if(in_array($route_hook, $body_class)){
                     foreach($actions as $action){
-                        $this->callTarget($action);
+                        WXP::call_target($action, array(), true);
                     }
                 }
             }
@@ -63,16 +64,7 @@ class DomRouter {
         $name = strtolower($name);
         $this->routes[$name][] = $callback;
     }
-    
-    protected function callTarget($target){
 
-        if(!is_callable($target)){
-            $target = explode('#', trim($target));
-            $target[0] = new $target[0];
-        }
-        
-        return call_user_func($target);
-    }
     
     
     

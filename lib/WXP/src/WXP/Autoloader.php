@@ -15,6 +15,13 @@ class Autoloader {
         require $file;
     }
     
+    static function register($path){
+        $loader = __CLASS__;
+        $loader = new $loader($path);
+        spl_autoload_register(array($loader, "load"));
+        return $loader;
+    }
+    
 }
 
 ?>
