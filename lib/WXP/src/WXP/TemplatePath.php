@@ -19,18 +19,45 @@ class TemplatePath {
         return $this->raw();
     }
     
+    /**
+     * get the raw path, without added extension or base path prefix
+     * 
+     * @return string the path
+     */
+    
     function raw(){
         return $this->path;
     }
+    
+    /**
+     * performs locate template on given template path. Note: this method
+     * does not default to a nameless version of the template path if 
+     * name is assigned to template path
+     * 
+     * @return string|false returns absolute path to template file or false if doesn't exist
+     */
     
     function absPath(){
         return locate_template($this->set_suffix($this->path));
     }
     
+    /**
+     * set the template name
+     * 
+     * @param string $name
+     * @return \WXP\TemplatePath
+     */
+    
     function name($name){
         $this->name = $name;
         return $this;
     }
+    
+    /**
+     * check if path has a name
+     * 
+     * @return boolean true if template has a name set, false if not
+     */
     
     function name_isset(){
         if((string) $this->name !== ""){
@@ -38,6 +65,14 @@ class TemplatePath {
         }
         return false;
     }
+    
+    /**
+     * adds the extension and template name to the end of the given
+     * path string
+     * 
+     * @param string $path
+     * @return string $path with suffix
+     */
     
     protected function set_suffix($path){
         $name = "";
@@ -47,9 +82,24 @@ class TemplatePath {
         return $this->strip_ext($path) .$name .".{$this->ext}";
     }
     
+    
+    /**
+     * strips the extension from given path
+     * 
+     * @param string $path
+     * @return string path without extension
+     */
+    
     protected function strip_ext($path){
         return \preg_replace("/\.[^$]*/", "", $path);
     }
+    
+    
+    /**
+     * Performs locate template on the template path
+     * 
+     * @return string|false absolute path to template file or false if file doesn't exist
+     */
     
     function dir(){
         $templates = array();

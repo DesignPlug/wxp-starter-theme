@@ -69,6 +69,17 @@ class WXP {
         
         $templates[] = "{$path}.php";
         
+        //apply filters to the templates array
+        $templates = apply_filters("WXP.view_templates", $templates);
+        
+        //allow more specific filter WXP.view_templates{$path} to override WXP.view_templates hook
+        
+        if(isset($path_alias)){
+            $templates = apply_filters("WXP.view_templates_{$path_alias}", $templates);
+        }
+        
+        $templates = apply_filters("WXP.view_templates_{$path}", $templates);
+        
         //now use WP's locate template to get the absolute path of 
         //the template. But do not include it via locate template
         //because then passed param will be out of scope

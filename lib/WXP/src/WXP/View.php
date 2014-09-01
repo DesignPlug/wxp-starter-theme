@@ -72,7 +72,7 @@ class View {
     }
     
     public function bind($template_path, $values = array()){
-        add_action("WXP.set_view_{$template_path}", function($values){
+        add_action("WXP.set_view_{$template_path}", function($View) use ($values){
             $View->add($values);
         });
         return $this;
