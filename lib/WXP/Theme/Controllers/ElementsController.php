@@ -91,13 +91,8 @@ class ElementsController extends Controller{
                 * html to the view 
                 */
                 
-                add_filter("WXP.var.header_slider", function($slider){
-                    
-                    ob_start();
-                    do_shortcode($slider);
-                    $slider = ob_get_contents();
-                    ob_end_clean();
-                    return $slider;
+                add_filter("WXP.view.global.header_slider", function($slider){
+                    return do_shortcode($slider);
                 });
                 
             break;

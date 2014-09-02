@@ -13,6 +13,9 @@ add_action("WXP.set_dom_routes", function($router){
             ->on('search', 'Theme\Controllers\ViewController#search')
             ->on('single', 'Theme\Controllers\ViewController#single')
             ->on('page', 'Theme\Controllers\ViewController#page')
+            ->on(array( 'single'), function($View){
+                $View->add("layout_header", "jumbotron");
+            })
             ->on('error404', 'Theme\Controllers\ViewController#error404');
 });
 
