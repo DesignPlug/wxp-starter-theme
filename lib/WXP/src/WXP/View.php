@@ -56,6 +56,10 @@ class View {
         $this->add($name, $value);
     }
     
+    function __toString() {
+        $this->render();
+    }
+    
     function add($name, $value = null){
         if(is_array($name)){
             foreach($name as $k => $v){
@@ -81,7 +85,7 @@ class View {
     function render($path = null, $name = ""){
         $path = WXP::DS($path) ?: $this->render_path;
         
-        //if path is only an alias 
+        //if path is an alias 
         $path = WXP::get_path($path);
         
         //build view data array with filters applied

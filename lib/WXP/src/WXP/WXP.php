@@ -38,6 +38,9 @@ class WXP {
     
     public static function get_view($path, $name = null, $param = array()){
         
+        //if $name is set to _kill return null
+        if(strtolower(trim($name)) === "_kill") return null;
+        
         //if path var is prefixed by hashtag
         //it is read as a path alias instead of 
         //a regular path, replace the alias value with
