@@ -11,6 +11,7 @@ class Observer {
     }
     
     function __call($fn, $param){
+        
         //if the object method is allowed, allow call to place
         //if method exists
         

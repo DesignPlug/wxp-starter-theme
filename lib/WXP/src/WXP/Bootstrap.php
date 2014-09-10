@@ -96,7 +96,7 @@ class Bootstrap {
             //if false is returned, don't include it
             
             $scripts = $config_path .WXP::DS("config\scripts.php");
-            $this->include_path($scripts, "WXP.{$theme}.include_scripts_path", function() use ($scripts){
+            $this->include_path($scripts, "WXP.{$theme}.include_scripts", function() use ($scripts){
                 add_action("wp_enqueue_scripts", function() use ($scripts){
                         require $scripts;
                     });
