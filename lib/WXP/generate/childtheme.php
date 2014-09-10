@@ -46,4 +46,16 @@
     //load build paths
     $build = require BUILDPATH ."childtheme.php";   
     
-    generate($themepath, $mkdir, $build);
+    $callback = array("_all" => function($g, $path) use ($name) {
+
+                            $param = array("framework"       => "WXP",
+                                           "framework_lc"    => "wxp",
+                                           "themename"       => $name,
+                                           "framework_theme" => "wxp-startertheme",
+                                           "themename_lc"    => strtolower($name),
+                                           "frameworkfn"     => "WP Express");
+
+                            return parse_template_vars($path, $param);
+                });
+    
+    generate($themepath, $mkdir, $build, $callback);

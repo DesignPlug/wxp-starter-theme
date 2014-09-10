@@ -34,6 +34,7 @@ class View {
     
     function set_render_path($render_path){
         $this->render_path = WXP::DS($render_path);
+        return $this;
     }
     
     function get_render_path($raw = false){

@@ -1,4 +1,4 @@
-<?php namespace {$themename}\Controllers;
+<?php namespace {themename}\Controllers;
 
 class ViewController extends Theme\Controllers\ViewController{
     

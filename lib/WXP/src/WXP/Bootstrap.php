@@ -43,7 +43,8 @@ class Bootstrap {
         $View->add("wxp_global_view", $View);
         
         //set default render path
-        $View->set_render_path($default_template);
+        $View->set_render_path($default_template)
+             ->add("wxp_default_render_path", $default_template);
         
         //do dom routing action
         $router = apply_filters("WXP.get_dom_router", DomRouter::getInstance());
@@ -100,6 +101,16 @@ class Bootstrap {
                     });
             });
             
+            //load init file if exist
+            
+            $hooks = $config_path .WXP::DS("config/init.php");
+            $this->include_path($hooks, "WXP.{$theme}.include_init"); 
+
+            //load hooks file if exist
+            
+            $hooks = $config_path .WXP::DS("config/hooks.php");
+            $this->include_path($hooks, "WXP.{$theme}.include_hooks");            
+            
             //load dom routes if exist
             
             $domRoutes = $config_path .WXP::DS("config/dom-routes.php");
@@ -138,5 +149,3 @@ class Bootstrap {
     }
     
 }
-
-?>

@@ -54,6 +54,18 @@ class Generator {
     }
     
     /**
+     * Gets the contents of file if it exists,
+     * else returns false
+     * 
+     * @param string $file filename
+     * @return string|false file contents or false if file doesn't exist
+     */
+    
+    function getFile($file){
+        return file_get_contents($this->getPath($file));
+    }
+    
+    /**
      * creates a new file, and parent directories if
      * they don't exist
      * 
@@ -105,21 +117,20 @@ class Generator {
     function build($folder_structure, $callbacks = array()){
         foreach($folder_structure as $handle => $path){
             
-            //create file or directory 
-            $create = true;
+            $contents = "";
+            
+            if(isset($callbacks["_all"])){
+                $contents = WXP::call_target($callbacks["_all"], array($this, $path)) ?: ""; 
+            }
             
             if(isset($callbacks[$handle])){
-                //allow callback to override creation
-                $create = WXP::call_target($callbacks[$handle], array($this, $path));
+                $contents = WXP::call_target($callbacks[$handle], array($this, $path)) ?: "";
             }
+
             
-            if($create != false){
-                
-                //if path has an extension, treat it 
-                //as a file, else as a dir
-                
-                $this->pathinfo($path, "extension") ? $this->makeFile($path) : $this->makeDir($path);
-            }
+            //create file or path
+
+            $this->pathinfo($path, "extension") ? $this->makeFile($path, $contents) : $this->makeDir($path);
         }
     }
     

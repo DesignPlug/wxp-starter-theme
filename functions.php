@@ -6,7 +6,7 @@ require "lib\wxp-dom-router.php";
 
 add_action("WXP.register_base_theme", function($bootstrap){
     $class_dir = get_template_directory() ."/lib/WXP/";
-    $bootstrap->register_theme("wxp-starter-theme", $class_dir, "{$class_dir}/Theme/");
+    $bootstrap->register_theme("wxp-startertheme", $class_dir, "{$class_dir}/Theme/");
 });
 
 /************************************************
@@ -29,13 +29,9 @@ require WXP::DS("lib\WXP\Theme\ui\widgets.php");
 
 
 /************************************************
- * THE OPTIONS FRAMEWORK
+ * THE OPTIONS TREE FRAMEWORK
  ***********************************************/
 
-/*
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/lib/options-framework/' );
-require_once dirname( __FILE__ ) . '/lib/options-framework/options-framework.php';
-*/
 
 add_filter( 'ot_theme_mode', '__return_true' );
 //add_filter( 'ot_show_pages', '__return_false' );

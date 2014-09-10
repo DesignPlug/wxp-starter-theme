@@ -60,14 +60,22 @@ function is_valid_varname($varname){
  * 
  */
 
-function parse_template_vars($gen, $path){
-    
+function parse_template_vars($path, $param){
+    if($content = get_template_contents($path)){
+        foreach($param as $k => $v){
+            $content = preg_replace("/{([\s]*".$k."[\s]*)}/", $v, $content);
+        }
+        return $content;
+    }
 }
 
 /**
  * 
  */
 
-function get_template_contents(){
-    
+function get_template_contents($template, $ext = "tpl"){
+    $tpl = pathinfo($template);
+    if(!@$tpl["extension"]) return false;
+    $tpl = $tpl["filename"].".".$tpl["extension"];
+    return @file_get_contents(TPLCONTENTSPATH .$tpl .".".$ext);
 }

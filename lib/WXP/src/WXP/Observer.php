@@ -69,4 +69,12 @@ class Observer {
         return $this->object->$var = $value;
     }
     
+    function __instanceof($type){
+        return $this->object instanceof $type;
+    }
+    
+    function __getObject(){
+        return $this->object;
+    }
+    
 }

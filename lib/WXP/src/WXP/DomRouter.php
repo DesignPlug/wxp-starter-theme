@@ -153,6 +153,22 @@ class DomRouter {
     }
     
     /**
+     * bind a single callback to any of the body classes passed as the first argument
+     * 
+     * @param array $classes an array of body classes to bind action to
+     * @param callable $callback 
+     * @param bool $fire_once if set to true, and the $callback is a class#method string or function name string it will not be fired again on another route
+     * @return \WXP\DomRouter
+     */
+    
+    function any(array $classes, $callback, $fire_once = true){
+        foreach($classes as $cls){
+            $this->on($cls, $callback, $fire_once);
+        }
+        return $this;
+    }
+    
+    /**
      * unbinds actions assigned to given body class 
      * 
      * @param string $class route to remove

@@ -1,23 +1,35 @@
 <?php
 
-/**
- * Initialize the options before anything else. 
- */
-add_action( 'admin_init', 'wxp_theme_options', 1 );
+/**********************************************
+* {frameworkfn} uses options tree framework to
+*  generate meta-boxes and theme options. {frameworkfn}
+*  will check your config folder for options.php 
+*  and include it if it exists. To remove {frameworkfn}'s
+*  default theme options add this line of code in
+*  functions.php
+
+remove_filter("{framework}.{framework_theme}.include_theme_options", "__return_false");
+
+* this will prevent {frameworkfn} from including default 
+* theme options.
+***********************************************/
+
 
 /**
- * Build the custom settings & update OptionTree.
- */
-function wxp_theme_options() {
-  /**
-   * Get a copy of the saved settings array. 
-   */
-  $saved_settings = get_option( 'option_tree_settings', array() );
+
+add_action( 'admin_init', '{themename_lc}_theme_options', 1 );
+
+
+#Build the custom settings & update OptionTree.
+
+function {themename_lc}_theme_options() {
   
-  /**
-   * Custom settings array that will eventually be 
-   * passes to the OptionTree Settings API Class.
-   */
+  #Get a copy of the saved settings array.
+   
+  $saved_settings = get_option( 'option_tree_settings', array() );
+
+  #create settings
+   
   $custom_settings = array(
     'sections'        => array(
       array(
@@ -46,7 +58,7 @@ function wxp_theme_options() {
       array(
         'id'          => 'wxp_company_logo',
         'label'       => 'Company Logo',
-        'desc'        => 'A ' .WXP_HEADER_LOGO_DIMEN .'px image of your brand logo, that will show in the header',
+        'desc'        => 'A image of your brand logo, that will show in the header',
         'std'         => '',
         'type'        => 'upload',
         'section'     => 'header'
@@ -156,9 +168,10 @@ function wxp_theme_options() {
   
   $custom_settings = apply_filters("WXP.option_tree_settings", $custom_settings);
   
-  /* settings are not the same update the DB */
+  # settings are not the same update the DB
+  
   if ( $saved_settings !== $custom_settings ) {
     update_option( 'option_tree_settings', $custom_settings ); 
   }
-  
 }
+*/ 

@@ -1,11 +1,25 @@
 <?php
 
-/**
- * Initialize the meta boxes. 
- */
-add_action( 'admin_init', 'wxp_meta_boxes' );
+/**********************************************
+* {frameworkfn} uses options tree framework to
+*  generate meta-boxes and theme options. {frameworkfn}
+*  will check your config folder for meta-boxes.php 
+*  and include it if it exists. To remove {frameworkfn}'s
+*  default meta options add this line of code in
+*  functions.php
 
-function wxp_meta_boxes() {
+remove_filter("{framework}.{framework_theme}.include_meta_boxes", "__return_false");
+
+* this will prevent {frameworkfn} from including default 
+* meta-boxes
+***********************************************/
+
+
+/** uncomment and modify to create your own metaboxes
+
+add_action( 'admin_init', 'custom_meta_boxes' );
+
+function custom_meta_boxes() {
 
   $my_meta_box = array(
     'id'        => 'wxp_layout_options',
@@ -56,3 +70,5 @@ function wxp_meta_boxes() {
   ot_register_meta_box( $my_meta_box );
 
 }
+
+*/
