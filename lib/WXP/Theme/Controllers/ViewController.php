@@ -19,8 +19,6 @@ class ViewController extends BaseController{
                    ->add('layout_footer', 'default')
                    ->add('read_more_text', 'MORE')
                    ->add('wxp_content_template', $this->View->get_render_path())
-                   ->add('allow_plugin_template_override', true)
-                   ->add('wxp_orig_content_template', view_var("wxp_content_template"))
                    ->add('copyright_footer', $this->Options->get("wxp_copyright"));
         
         $this->View->set_render_path("#base");        

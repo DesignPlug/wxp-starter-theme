@@ -44,7 +44,8 @@ class Bootstrap {
         
         //set default render path
         $View->set_render_path($default_template)
-             ->add("wxp_default_render_path", $default_template);
+             ->add("wxp_default_render_path", $default_template)
+             ->add("wxp_allow_plugin_template_override", true);
         
         //do dom routing action
         $router = apply_filters("WXP.get_dom_router", DomRouter::getInstance());
