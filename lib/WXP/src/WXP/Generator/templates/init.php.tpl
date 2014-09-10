@@ -7,7 +7,7 @@
 * with a default init file. To prevent {frameworkfn} from using
 * the default init file, add this line of code to functions.php
 
-
+add_filter("{framework}.{framework_theme}.include_init", "__return_false");
 
 /**
 

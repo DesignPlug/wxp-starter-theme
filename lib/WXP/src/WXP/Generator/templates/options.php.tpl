@@ -8,7 +8,7 @@
 *  default theme options add this line of code in
 *  functions.php
 
-remove_filter("{framework}.{framework_theme}.include_theme_options", "__return_false");
+add_filter("{framework}.{framework_theme}.include_theme_options", "__return_false");
 
 * this will prevent {frameworkfn} from including default 
 * theme options.

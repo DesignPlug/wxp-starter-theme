@@ -8,7 +8,7 @@
 *  default meta options add this line of code in
 *  functions.php
 
-remove_filter("{framework}.{framework_theme}.include_meta_boxes", "__return_false");
+add_filter("{framework}.{framework_theme}.include_meta_boxes", "__return_false");
 
 * this will prevent {frameworkfn} from including default 
 * meta-boxes
