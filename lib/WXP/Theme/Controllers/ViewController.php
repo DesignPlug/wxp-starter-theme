@@ -12,7 +12,9 @@ class ViewController extends BaseController{
          * at anytime in methods called afterwards
          */
         
-        $this->View->add('nav', 'primary_navigation')
+        
+        
+        $this->View->add('primary_nav_location', 'primary_navigation')
                    ->add('layout', 'sidebar')
                    ->add('main_sidebar', 'sidebar-primary')
                    ->add('main_class', 'col-sm-8')
@@ -34,6 +36,12 @@ class ViewController extends BaseController{
          * set the navigation vars
          */
         $this->Template->set_nav();
+        
+        /*
+         * set the template layout
+         */
+        
+        $this->Template->set_layout();
         
         /*
          * add social links to the view
@@ -72,15 +80,11 @@ class ViewController extends BaseController{
          */
         
         /*
-         * set the layout and template options
+         * set base variables
          */
         
-        
-        $this->View->add("layout_header", "post")
-                   ->add('page_header_tags', array())
-                   ->add('post_loop_content_read', 'excerpt')
-                   ->add('post_loop_show_thumb', true)
-                   ->add("wxp_content_template", locate_template("views/content/content-loop.php"));
+        $this->View->add('post_loop_show_thumb', true)
+                   ->add("wxp_content_template", WXP::get_path("#loop")->dir());
         
         /*
          * if posts exceed the amount of that allotted per page,

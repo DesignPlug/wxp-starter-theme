@@ -36,6 +36,50 @@ class WXP {
         return static::Path();
     }
     
+    /**
+     * if path is an absolute path it will be included
+     * else if the path is a path alias, prefixed with a
+     * pound character, get_view will be used to render view
+     * 
+     * @param string $path absolute path or path alias
+     */
+    
+    public static function include_view($path){
+        if(static::has_prefix("#", $path)){
+            static::get_view($path);
+        } else {
+            include $path;
+        }
+    }
+    
+    /**
+     * works as get_template_part with some significant enhancements.
+     * unlinke get_template_part get_view supports variable parameters.
+     * In addition generated view has direct access to global view variables
+     * within it's scope. for example:
+     * 
+     * //passing a var to the View objects global scope like so:
+     * View->add("foo", "bar");
+     * 
+     * //can be accessed directly in view template like so:
+     * <?php echo $foo; ?>
+     * 
+     * changing the value of $foo in the template will not overwrite the value of
+     * view elsewhere.
+     * 
+     * you can overwrite the value of $foo in the template by passing an array with the
+     * key "foo" and a new value like so:
+     * WXP::get_view("#template_path", $template_name, array("foo" => "not bar"));
+     * 
+     * in the template the value of $foo would be "not bar"
+     *
+     * 
+     * @param string $path path to template or path alias
+     * @param string $name name of given template
+     * @param array $param an array of variables to pass to view
+     * @return null
+     */
+    
     public static function get_view($path, $name = null, $param = array()){
         
         //if $name is set to _kill return null
@@ -116,6 +160,15 @@ class WXP {
             
             //render View
             $View->render();
+
+            //fire after action 
+            
+            if(isset($path_alias)){
+                //Also allow users to bind actions to the alias like so
+                do_action("get_template_part_{$path_alias}_after");
+            }
+            
+            do_action("get_template_part_{$path}_after");
         }
         
     }
@@ -183,6 +236,24 @@ class WXP {
         return trim(str_replace(array("/","\\"), $ds, $dir));
     }
     
+    public static function has_prefix($prefix, $subject){
+        $subject = trim($subject);
+        return strpos($prefix, $subject) === 0;
+    }
+    
+    public static function force_return($callback, $param){
+        ob_start();
+        
+        //defualt function return value
+        $r = static::call_target($callback, $param);
+        
+        //buffered content
+        $clean = ob_get_clean();
+        
+        //if function already returns value just return that
+        //else return the buffered content
+        $content = isset($r) ? $r : $clean;
+    }
 }
 
 ?>

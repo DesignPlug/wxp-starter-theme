@@ -18,7 +18,7 @@
      * Choose the template layout/columns
      *********************************************************************/
     
-    wxp_get_view("#layout_column", $layout);
+    wxp_get_view("#layout_column", $layout_column);
 
     /**********************************************************************
      * get the layout footer

@@ -59,7 +59,7 @@ function wxp_theme_options() {
         'section'     => 'header'
       ),
       array(
-        'id'          => 'wxp_rnav_support',
+        'id'          => 'wxp_responsive_menu_support',
         'label'       => 'Use Responsive Drawer Navigation?',
         'type'        => 'checkbox',
         'section'     => 'navigation',
@@ -71,7 +71,7 @@ function wxp_theme_options() {
         )  
       ),  
       array(
-        'id'          => 'wxp_rnav_position',
+        'id'          => 'wxp_responsive_menu_position',
         'label'       => 'Responsive Drawer Navigation Position',
         'desc'        => 'Which side of the screen should the Responsive drawer Navigation toggle from?',
         'type'        => 'radio',

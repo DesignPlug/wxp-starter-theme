@@ -16,14 +16,14 @@ function wxp_meta_boxes() {
     'priority'  => 'high',
     'fields'    => array(
       array(
-        'id'          => 'wxp_page_subheading',
+        'id'          => 'wxp_layout_header_subtitle',
         'label'       => 'Page Sub Heading',
         'desc'        => '',
         'std'         => '',
         'type'        => 'text'
       ),
       array(
-        'id'          => 'wxp_page_header_style',
+        'id'          => 'wxp_layout_header',
         'label'       => 'Page Header Style',
         'desc'        => '',
         'std'         => 'post',
@@ -44,7 +44,7 @@ function wxp_meta_boxes() {
         )
       ),
       array(
-        'id'          => 'wxp_page_slider_shortcode',
+        'id'          => 'wxp_layout_header_slider_shortcode',
         'label'       => 'Slider Shortcode',
         'desc'        => 'Paste the slider\'s shortcode here (only used on slider header style)',
         'std'         => '',

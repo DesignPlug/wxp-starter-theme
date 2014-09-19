@@ -20,3 +20,7 @@ function wxp_reset_render_path(){
     view_var("wxp_global_view")->set_render_path(view_var("wxp_default_render_path"));
 }
 
+function wxp_include_view($path){
+    WXP::include_view($path);
+}
+

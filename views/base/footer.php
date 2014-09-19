@@ -5,7 +5,7 @@
       </div>
       <div class="row">
           <div class="col-md-4">
-              <p><?php echo view_var("copyright_footer"); ?></p>
+              <p><?php echo $copyright_footer; ?></p>
           </div>
           <div class="col-md-8">
               <?php WXP\WXP::get_view("#social_networks"); ?>

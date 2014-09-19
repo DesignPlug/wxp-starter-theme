@@ -1,12 +1,12 @@
 <?php
 
    // Make theme available for translation
-  load_theme_textdomain(WXP_TEXTDOMAIN, WXP_TEXTDOMAIN_PATH);
+ // load_theme_textdomain(WXP_TEXTDOMAIN, WXP_TEXTDOMAIN_PATH);
 
   // Register wp_nav_menu() menus (http://codex.wordpress.org/Function_Reference/register_nav_menus)
   register_nav_menus(array(
-    'primary_navigation' => __('Primary Navigation', WXP_TEXTDOMAIN),
-    'resp_navigation' => __('Responsive Navigation', WXP_TEXTDOMAIN) 
+    'primary_navigation' => __('Primary Navigation', "todo_text_domain"),
+    'resp_navigation' => __('Responsive Navigation', "todo_text_domain") 
   ));
 
     /**

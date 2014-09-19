@@ -108,6 +108,7 @@ class TemplatePath {
         if($this->fallback === true && $this->name_isset()){
             $templates[] = $this->strip_ext($this->path) .".{$this->ext}";
         }
+        
         return locate_template($templates);
     }
     

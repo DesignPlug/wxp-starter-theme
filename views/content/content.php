@@ -1,7 +1,9 @@
 <article <?php post_class(); ?>>
 
-  <?php get_template_part("views/content/partials/header", view_var("content_type")); ?>
+  <?php wxp_get_view("#content_header", $content_header); ?>
     
-  <?php get_template_part("views/content/partials/content", view_var("post_loop_content_read")); ?>
+  <?php wxp_get_view("#content_body", $content_body); ?>
+    
+  <?php wxp_get_view("#content_footer", $content_footer); ?>  
     
 </article>

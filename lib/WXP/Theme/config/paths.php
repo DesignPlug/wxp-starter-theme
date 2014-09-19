@@ -14,22 +14,22 @@ add_filter("WXP.set_template_paths", function($Path){
          ->add("base_footer", "views/base/footer")
         
         
-         ->add("layout_column", "views/base/layouts/column")
+         ->add("layout_column", "views/base/layout/columns/column")
             
             
-         ->add("layout_footer", "views/base/layouts/parts/footers/footer")
+         ->add("layout_footer", "views/base/layout/footers/footer")
             
             
-         ->add("layout_header", "views/base/layouts/parts/headers/header")
+         ->add("layout_header", "views/base/layout/headers/header")
         
 
-         ->add("layout_nav", "views/base/layouts/parts/navs/nav")
+         ->add("layout_nav", "views/base/layout/navs/nav")
         
         
-         ->add("layout_sidebar", "views/base/layouts/parts/sidebars/sidebar")
+         ->add("layout_sidebar", "views/base/layout/sidebars/sidebar")
         
         
-         ->add("content_wrapper", "views/base/layouts/parts/wrappers/wrapper")
+         ->add("layout_wrapper", "views/base/layout/wrappers/wrapper")
         
          
          ->add("brand", "views/brand/brand")
@@ -37,23 +37,41 @@ add_filter("WXP.set_template_paths", function($Path){
         
          ->add("error", "views/content/error/error")
         
-        
+            
+         ->add("loop", "views/loops/loop")
+            
+            
+         ->add("loop_header", "views/loops/headers/header")  
+            
+            
+         ->add("loop_footer", "views/loops/footers/footer")     
+            
+            
          ->add("content", "views/content/content")
-        
+            
+            
+         ->add("content_header", "views/content/headers/header")
+            
+            
+         ->add("content_body", "views/content/body/body")
+            
+            
+         ->add("content_meta", "views/content/meta/meta")
+            
+            
+         ->add("content_thumbnail", "views/content/thumbnail/thumbnail")
+            
+            
+         ->add("content_footer", "views/content/footers/footer")
+            
         
          ->add("form", "views/forms/form")
         
             
-         ->add("menu", "views/menus/nav")
-        
-            
-         ->add("responsive_menu", "views/menus/rnav")
+         ->add("menu", "views/menus/menu")
         
         
-         ->add("responsive_menu_trigger", "views/menus/rnav_trigger")
-        
-        
-         ->add("responsive_menu", "views/menus/rnav")
+         ->add("responsive_menu_trigger", "views/menus/rmenu_trigger")
         
         
          ->add("social_networks", "views/social/networks");   

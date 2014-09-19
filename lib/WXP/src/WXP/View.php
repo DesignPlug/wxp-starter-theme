@@ -5,16 +5,10 @@ class View {
     
     protected $data = array(),
               $render_path = "",
+              $render_path_name = "",
               $namespace;
     
     static protected $instance;
-    
-    static function __callStatic($name, $param)
-    {
-        if(method_exists(self, $name)){
-            return call_user_func_array(array(static::getInstance(), $name), $param);
-        }
-    }
     
     static function getInstance(){
        
@@ -32,8 +26,9 @@ class View {
         }
     }
     
-    function set_render_path($render_path){
+    function set_render_path($render_path, $name = ""){
         $this->render_path = WXP::DS($render_path);
+        $this->render_path_name = $name ?: $this->render_path_name;
         return $this;
     }
     
@@ -58,7 +53,23 @@ class View {
     }
     
     function __toString() {
+        ob_start();
         $this->render();
+        return ob_get_clean();
+    }
+    
+    /**
+     * get view data, with all filters applied
+     * 
+     * @return array View data
+     */
+    
+    function get_data(){
+        $data = array();
+        foreach($this->data as $k => $v){
+            $data[$k] = $this->get($k);
+        }
+        return $data;
     }
     
     function add($name, $value = null){
@@ -84,18 +95,31 @@ class View {
     }
     
     function render($path = null, $name = ""){
+        
+        $name = $name ?: $this->render_path_name;
+        
         $path = WXP::DS($path) ?: $this->render_path;
         
         //if path is an alias 
         $path = WXP::get_path($path);
         
-        //build view data array with filters applied
-        $data = array();
-        foreach($this->data as $k => $v){
-            $data[$k] = $this->get($k);
+        //get view data array with filters applied
+        $data = $this->get_data();
+        
+        //if this is not the global view, extract
+        //the global view vars
+        // -- local view vars will overwrite any global view vars
+        // -- in scope. Use view_var or __var function to access
+        // -- the original global value
+        
+        if($this->namespace !== "global"){
+            $global_view_data = View::getInstance()->get_data();
+            extract($global_view_data);
         }
         
-        extract($data, EXTR_OVERWRITE);
+        //extract local view data vars if not empty
+        if(!empty($data)) extract($data);
+        
         require $path->name($name)->dir();
     }
 }
