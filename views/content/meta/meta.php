@@ -2,5 +2,5 @@
     <?php echo get_the_date(); ?>
 </time>
 <span class="author">
-    <?php $content_meta_author; ?>
+    <?php echo $content_meta_author; ?>
 </span>

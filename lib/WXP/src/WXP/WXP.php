@@ -254,6 +254,8 @@ class WXP {
         //if function already returns value just return that
         //else return the buffered content
         $content = isset($r) ? $r : $clean;
+        
+        return $content;
     }
 }
 

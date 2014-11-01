@@ -202,7 +202,7 @@ class ViewController extends BaseController{
         
         if($error404page = $this->Options->get("wxp_error404_template")){
             
-            $this->Template->set_layout_heading(get_post($error404page));
+            $this->Template->set_layout_header(get_post($error404page));
             
     } else {
         
