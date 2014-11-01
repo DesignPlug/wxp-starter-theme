@@ -6,48 +6,13 @@ class ViewController extends BaseController{
     
     function common(){
         
-        /**
-         * Set all the default options common to every page
-         * in this method. Values set in common can be overridden 
-         * at anytime in methods called afterwards
-         */
-        
-        
-        
-        $this->View->add('primary_nav_location', 'primary_navigation')
-                   ->add('layout', 'sidebar')
-                   ->add('main_sidebar', 'sidebar-primary')
-                   ->add('main_class', 'col-sm-8')
-                   ->add('layout_footer', 'default')
-                   ->add('read_more_text', 'MORE')
-                   ->add('wxp_content_template', $this->View->get_render_path())
-                   ->add('copyright_footer', $this->Options->get("wxp_copyright"));
+        //the the default render path
         
         $this->View->set_render_path("#base");        
+
+        //set the default template varialbes
         
-        /**
-         * Load brand name or logo
-         **/
-        
-        $logo = ($src = ot_get_option("wxp_company_logo"))? '<img src="' .$src .'"/>' : get_bloginfo("name"); 
-        $this->View->add("brand_logo", $logo);
-        
-        /*
-         * set the navigation vars
-         */
-        $this->Template->set_nav();
-        
-        /*
-         * set the template layout
-         */
-        
-        $this->Template->set_layout();
-        
-        /*
-         * add social links to the view
-         */
-        
-        $this->View->add("social_links", $this->Template->get_social_links());
+        $this->Template->init(); 
         
         /*
          * We'll allow the plugin generated template directory override any 
@@ -57,19 +22,6 @@ class ViewController extends BaseController{
          */
         
         add_action("WXP.DomRoute.after", array($this, 'plugin_template_override'));
-        
-        
-        /* 
-         * Add a filter to content_type variable so that it returns 
-         * the current post_format, and if format is standard it will instead
-         * return the post type
-         */
-        
-        add_filter("WXP.var.content_type", function(){
-            if(!$format = get_post_format()) 
-                return get_post_type();
-            return $format;
-        });
     }
     
     function archive(){
@@ -83,8 +35,7 @@ class ViewController extends BaseController{
          * set base variables
          */
         
-        $this->View->add('post_loop_show_thumb', true)
-                   ->add("wxp_content_template", WXP::get_path("#loop")->dir());
+        $this->View->add("wxp_content_template", WXP::get_path("#loop")->dir());
         
         /*
          * if posts exceed the amount of that allotted per page,
@@ -103,7 +54,7 @@ class ViewController extends BaseController{
         
         if(!have_posts()){
             $this->View->add("wxp_content_template", 
-                             locate_template("views/content/error/error-no-posts.php"));
+                              WXP::get_path("#error")->name("no-posts")->dir());
         }  
         
         
@@ -131,15 +82,15 @@ class ViewController extends BaseController{
             //use content from page for posts, to fill in header values
             
             $post = get_post(get_option('page_for_posts', true));
-            $this->Template->set_layout_heading($post);
+            $this->Template->set_layout_header($post);
             
         } else {
             
             //use the regular blog info instead
             
-            $this->View->add('page_header_title', get_bloginfo("name"))
-                       ->add('page_header_subtitle', get_bloginfo("description"))
-                       ->add('page_header_tags', array());
+            $this->View->add('layout_header_title', get_bloginfo("name"))
+                       ->add('layout_header_subtitle', get_bloginfo("description"))
+                       ->add('layout_header_tags', array());
         }           
     }
     
@@ -154,7 +105,7 @@ class ViewController extends BaseController{
          * set the page header for the tag archive
          */
         
-        $this->View->add('page_header_title', sprintf(__("Posts tagged: %s "), single_tag_title("", 0)));
+        $this->View->add('layout_header_title', sprintf(__("Posts tagged: %s "), single_tag_title("", 0)));
     }
     
     
@@ -164,7 +115,7 @@ class ViewController extends BaseController{
          * set the page header for the category archive
          */
                 
-        $this->View->add('page_header_title', get_category(get_query_var('cat'))->name);
+        $this->View->add('layout_header_title', get_category(get_query_var('cat'))->name);
     }
     
     function author(){
@@ -173,7 +124,7 @@ class ViewController extends BaseController{
          * set the page header for the author archive
          */
                 
-        $this->View->add('page_header_title', sprintf(__("Posts by %s "), get_query_var('author_name')));        
+        $this->View->add('layout_header_title', sprintf(__("Posts by %s "), get_query_var('author_name')));        
     }
     
     function date(){
@@ -192,7 +143,7 @@ class ViewController extends BaseController{
             $date = get_the_time('F jS, Y');
         }
         
-        $this->View->add('page_header_title', sprintf(__("Archive for %s "), $date));             
+        $this->View->add('layout_header_title', sprintf(__("Archive for %s "), $date));             
     }
     
     
@@ -233,7 +184,7 @@ class ViewController extends BaseController{
         $this->archive();
         
         global $post;
-        $this->Template->set_layout_heading($post);
+        $this->Template->set_layout_header($post);
         $this->View->add("post_loop_content_read", "full");
     }
     

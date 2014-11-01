@@ -59,7 +59,7 @@ add_filter("WXP.set_template_paths", function($Path){
          ->add("content_meta", "views/content/meta/meta")
             
             
-         ->add("content_thumbnail", "views/content/thumbnail/thumbnail")
+         ->add("content_thumbnail", "views/content/thumbnails/thumbnail")
             
             
          ->add("content_footer", "views/content/footers/footer")
@@ -74,6 +74,6 @@ add_filter("WXP.set_template_paths", function($Path){
          ->add("responsive_menu_trigger", "views/menus/rmenu_trigger")
         
         
-         ->add("social_networks", "views/social/networks");   
+         ->add("social_networks", "views/social/social");   
 });
 

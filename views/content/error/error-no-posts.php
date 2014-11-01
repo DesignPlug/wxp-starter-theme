@@ -1,4 +1,4 @@
   <div class="alert alert-warning">
-    <?php _e('Sorry, no results were found.', 'roots'); ?>
+    <?php echo $error_no_post_heading ?>
   </div>
-  <?php get_search_form(); ?>
+  <?php echo $error_no_posts_body; ?>

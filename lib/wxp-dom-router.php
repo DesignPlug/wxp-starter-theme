@@ -17,6 +17,7 @@ $ds = DIRECTORY_SEPARATOR;
 
 require 'WXP'.$ds.'src'.$ds.'WXP'.$ds.'WXP.php';
 require  WXP::DS('WXP/src/WXP/Autoloader.php');
+require  WXP::DS('WXP/src/WXP/Action.php');
 require  WXP::DS('WXP/src/WXP/TemplatePath.php');
 require  WXP::DS('WXP/src/WXP/Path.php');
 require  WXP::DS('WXP/src/WXP/Bootstrap.php');

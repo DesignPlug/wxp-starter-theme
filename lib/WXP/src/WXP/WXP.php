@@ -44,11 +44,12 @@ class WXP {
      * @param string $path absolute path or path alias
      */
     
-    public static function include_view($path){
+    public static function include_view($path, $ns = false){
         if(static::has_prefix("#", $path)){
             static::get_view($path);
         } else {
-            include $path;
+            $view = new View($ns, $path);    
+            static::render_view($view);
         }
     }
     

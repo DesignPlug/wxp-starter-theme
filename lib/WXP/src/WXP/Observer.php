@@ -23,7 +23,7 @@ class Observer {
             //method call is allowed
             
             if(!method_exists($this->object, $fn)){
-                throw new BadMethodCallException("Call to undefined method {$this->handle}::{$fn}");
+                throw new \BadMethodCallException("Call to undefined method {$this->handle}::{$fn}");
             }
             
             //if method does exist do .before action

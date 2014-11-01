@@ -14,22 +14,14 @@ use WXP\Action;
 
 class ElementsController extends Controller{
     
-    function set_defaults(){
+    function init(){
      
-        $this->set_base();            #base
-        $this->set_base_header();     #base_header
-        $this->set_layout_header();   #layout_header
-        $this->set_layout_nav();      #layout_nav
-        $this->set_layout_brand();    #brand
-        $this->set_responsive_menu(); #menu-{drawer}
-        $this->set_layout_column();   #layout_column
-        $this->set_layout_sidebar();  #layout_sidebar
-        $this->set_layout_wrapper();  #layout_wrapper
-        $this->set_loop();            #loop
-        $this->set_loop_header();     #loop_header
-        $this->set_content();         #content
-        $this->set_loop_footer();     #loop_footer
+        //call all methods in order of definition
+        $methods = get_class_methods($this);
         
+        foreach($methods as $m){
+            if(strpos($m, "set_") === 0) $this->{$m}();
+        }
     }
     
     /**
@@ -74,7 +66,9 @@ class ElementsController extends Controller{
      */
     
     
-    function set_layout_header(){
+    function set_layout_header($post = false){
+        
+        $post = $post?: get_post();
         
         switch($header_style = get_post_meta($post->ID, "wxp_layout_header", true)){
             
@@ -173,9 +167,20 @@ class ElementsController extends Controller{
         }
     }
     
+    /**
+     * sets the following variables found in the #brand view
+     * 
+     * <b>$brand_class </b> - the class of the brand link, empty by default
+     * 
+     * <b>$brand_url </b> - the url path that the brand anchor links to, is home_url() by default
+     * 
+     * <b>$brand_logo </b> - the logo image, or text. get_bloginfo("name") by default
+     */
     
     function set_brand(){
-        
+        $this->View->add("brand_class", "")
+                   ->add("brand_url", home_url())
+                   ->add("brand_logo", get_bloginfo("name"));
     }
     
     /**
@@ -229,7 +234,7 @@ class ElementsController extends Controller{
             //set primary menu classes
             //main menu will disappear on small screen
             //and responsive will show instead 
-            $this->View->bind("#menu", array("menu_class" => "pull-right visible-lg visible-md"));
+            $this->View->bind("#menu", array("menu_class" => "nav-main pull-right visible-lg visible-md"));
             
             
             //let the responsive nav trigger show on small screens (bootstrap)
@@ -256,9 +261,11 @@ class ElementsController extends Controller{
      * Sets the content layout to either single column or two column (sidebar) layout
      * This method sets the following View vars:
      * 
-     * $layout_wrapper_class - set to bootstrap grid class in #layout_wrapper view
-     * $layout_column - the name of the #layout_column view included in #base view
-     * $layout_sidebar_class - set to bootstrap grid class in #layout_sidebar view
+     * <b>$layout_wrapper_class</b>  - set to bootstrap grid class in #layout_wrapper view
+     * 
+     * <b>$layout_column</b>         - the name of the #layout_column view included in #base view
+     * 
+     * <b>$layout_sidebar_class</b>  - set to bootstrap grid class in #layout_sidebar view
      * 
      * @param string $layout
      */
@@ -416,7 +423,14 @@ class ElementsController extends Controller{
     }
     
     /**
+     * sets the variables found in #content_thumbnail template
      * 
+     * <b>$content_thumbnail_class</b> - the class of the anchor link wrapping the thumbnail (post-thumbnail by default)
+     * 
+     * <b>$content_thumbnail_size</b> - the size of the thumbnail - medium by default
+     * 
+     * <b>$content_thumbnail_attr</b> - an array of attributes for the thumbnail - empty array by default
+     *
      */
     
     function set_content_thumbnail(){
@@ -429,22 +443,40 @@ class ElementsController extends Controller{
     }
     
     /**
+     * sets variables found inside the #content_body template
      * 
+     * <b> $the_content_more </b> - the more text for the post content excerpt - read more by default
      */
     
     function set_content_body(){
-        
+        $this->View->add("the_content_more", "read more");    
     }
     
-    function set_content_error(){
-        
-    }
+    /**
+     * empty - override in your theme
+     */
     
     function set_content_footer(){
         
     }
     
+    /**
+     * sets variables found in the #content_meta template:
+     * 
+     * <b> $content_meta_author </b> - an anchor link back to the author of the post
+     * 
+     */
+    
     function set_content_meta(){
+        
+        $this->View->add("content_meta_author", new Action(function(){
+            
+            $author_name = get_the_author();
+            $author_url  = get_author_posts_url(get_the_author_meta('ID'));
+            
+            return '<a href="'.$author_url.'" rel="author">'.$author_name.'</a>';
+
+        }));
         
     }
     
@@ -475,55 +507,70 @@ class ElementsController extends Controller{
         
     }
     
+    /**
+     * method for setting variables in #base_footer template
+     * 
+     * <b> $base_footer_copyright </b> - copyright text in the bottom corner of temlpate - the value of 'wxp_copyright' option by default
+     * 
+     * <b> $social_networks !! </b> - the name of the social networks template - empty by default
+     */
+    
     function set_base_footer(){
         
+        $this->View->add("base_footer_copyright", $this->Options->get("wxp_copyright"))
+                
+                   ->bind("#base_footer", array("social_networks" => ""));
+        
     }
+    
+    /**
+     * sets variables found in the #form_search template
+     * 
+     * <b> $form_search_query </b> - value of the current search query - empty by default
+     * 
+     * <b> $form_search_input_class </b> - value of the search form input class - .search-field.form-control by default
+     * 
+     * <b> $form_search_action_text </b> - text inside search button - "Search" by default
+     */
     
     function set_form_search(){
         
-    }
-    
-    function set_menu_nav(){
+        $this->View->add("form_search_query", @$_GET['s'])
+                   ->add("form_search_input_class", "search-field form-control")
+                   ->add("form_search_action_class", "search-submit btn btn-default")
+                   ->add("form_search_action_text", "Search");
         
     }
+    
+    /**
+     * sets the variables of the #menu path
+     * 
+     * <b> $menu_class </b> - the class of the menu containing element - nav-main by default
+     * 
+     * <b> $menu_primary_location </b> - the location of the menu - 'primary_navigation' by default
+     * 
+     * <b> $menu_primary_class </b> - the class of the menu itself - ".nav.nav-pills" by default
+     */
+    
+    function set_menu(){
+        
+        $this->View->add("menu_class", "nav-main")
+                
+                   ->add("menu_primary_location", "")
+                
+                   ->add("menu_primary_class", "nav nav-pills");
+                
+    }
+    
+    /**
+     * sets variables of the #social_networks template
+     * 
+     * <b>social_network_links</b> - an array of social networks enabled in the default Wordpress options set up
+     */
     
     function set_social(){
         
-    }
-    
-    
-    function set_layout($layout = 'sidebar'){
         
-        switch($layout){
-            
-            case "one":
-                
-                $this->View->bind("#content_wrapper", array("main_class" => "col-sm-12"))
-                           ->add("layout_column", "one");
-                
-            break;
-            default:
-                
-                $this->View->bind("#content_wrapper", array("main_class" => "col-sm-8"))
-                           ->add("layout_column", "sidebar");
-                
-            break;
-            
-        }
-        
-    }
-    
-    function set_nav(){
-
-    }
-    
-    function set_layout_heading($post){
-        
-
-
-    }
-    
-    function get_social_links(){
         $networks = array('facebook', 
                           'twitter', 
                           'googleplus' => 'Google +',
@@ -561,7 +608,39 @@ class ElementsController extends Controller{
             }
         }
         
-        return $social_links;
+        $this->View->add("social_network_links", $social_links);
+    }
+    
+    /**
+     * sets values in the #error-404 template
+     * 
+     * <b> $error_404_heading </b> - default "Uh Oh...404"
+     * 
+     * <b> $error_404_body </b> - default "Page not found"
+     */
+    
+    function set_error_404(){
+        
+        $this->View->add("error_404_heading", "Uh Oh...404")
+                
+                   ->add("error_404_body", "Page not found");
+        
+    }
+    
+   /**
+    * sets values in the #error-no-posts template
+    * 
+    * <b> $error_no_posts_heading </b> - default "Uh Oh..."
+    * 
+    * <b> $error_no_posts_body </b> - default "No posts found"
+    */
+    
+    function set_error_no_posts(){
+     
+        $this->View->add("error_no_posts_heading", "Uh Oh...")
+                
+                   ->add("error_no_posts_body", "No posts found");
+        
     }
 }
 
